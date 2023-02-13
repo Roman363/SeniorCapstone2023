@@ -1,29 +1,27 @@
 import "./App.css";
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./components/pages/Home";
+import BrowseProject from "./components/pages/BrowseProject";
+import CreateProject from "./components/pages/CreateProject";
+import OpenProject from "./components/pages/OpenProject";
+import DeleteProject from "./components/pages/DeleteProject";
+import WorngPath from "./components/pages/WorngPath";
 
 function App() {
   return (
-    <>
-      <Router>
-        <div className="App">
-          <div className="box-container">
-            <text>Naive</text>
-            <div className="button-container">
-              <div className="content-container">
-                <text>Initials</text>
-                <input type="text"></input>
-              </div>
-              <div></div>
-            </div>
-          </div>
-          <Routes>
-            <Route path="/" exact element={<Home />} />
-          </Routes>
-        </div>
-      </Router>
-    </>
+    <BrowserRouter>
+      <div className="App">
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+          <Route exact path="/CreateProject" element={<CreateProject />} />
+          <Route exact path="/BrowseProject" element={<BrowseProject />} />
+          <Route exact path="/OpenProject" element={<OpenProject />} />
+          <Route exact path="/DeleteProject" element={<DeleteProject />} />
+          <Route path="*" element={<WorngPath />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 
