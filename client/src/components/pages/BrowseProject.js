@@ -28,7 +28,7 @@ function BrowseProject() {
   
   return (
     <form onSubmit={handleSubmit}>
-      <div>Create NAIVE Project</div>
+      <h3>Create NAIVE Project</h3>
       <input type="text" name="fileInput" placeholder='D://rollups' onChange={handleChange}/>
       <button type="submit" >Browse</button>
       <br />

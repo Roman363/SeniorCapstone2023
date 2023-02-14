@@ -11,19 +11,26 @@ export default function CreateProject() {
     setFileName(e.target.value);
   }
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    // navigate(`/projects/${fileName}`);
+  function handleSubmit(event) {
+    event.preventDefault()
+    console.log(fileName)
+    if(fileName !== "") {
+    alert("Rollup created Successfully!")
+    navigate("/")
+    }else {
+      alert("Please enter project name")
+    }
   }
+
 
   return (
     <form onSubmit={handleSubmit}>
-      <div>Create NAIVE Project</div>
-      <p>
+      <h3>Create NAIVE Project</h3>
+      {/* <p>
         Rooleup created <br />
         Successfully
-      </p>
-      <p>Enter project name</p>
+      </p> */}
+      <h5>Enter project name</h5>
       <input
         type="text"
         name="fileInput"
