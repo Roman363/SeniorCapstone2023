@@ -7,6 +7,7 @@ import CreateProject from "./components/pages/CreateProject";
 import OpenProject from "./components/pages/OpenProject";
 import DeleteProject from "./components/pages/DeleteProject";
 import WorngPath from "./components/pages/WorngPath";
+import NetworkMap from "./components/pages/NetworkMap";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route exact path="/BrowseProject" element={<BrowseProject />} />
           <Route exact path="/OpenProject" element={<OpenProject />} />
           <Route exact path="/DeleteProject" element={<DeleteProject />} />
+          <Route exact path="/NetworkMap" element={<NetworkMap />} />
           <Route path="*" element={<WorngPath />} />
         </Routes>
       </div>

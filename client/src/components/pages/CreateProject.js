@@ -26,10 +26,7 @@ export default function CreateProject() {
   return (
     <form onSubmit={handleSubmit}>
       <h3>Create NAIVE Project</h3>
-      {/* <p>
-        Rooleup created <br />
-        Successfully
-      </p> */}
+      
       <h5>Enter project name</h5>
       <input
         type="text"

@@ -1,19 +1,25 @@
 import React from "react";
-import * as React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 function OpenProject() {
   const navigate = useNavigate();
-  const [file, setFile] = useState("");
+  const [fileName, setFileName] = useState("");
 
-  function handleCreate(event) {
+  function handleChange(e) {
+    e.preventDefault();
+    setFileName(e.target.value);
+  }
+  function handleOpen(event) {
     event.preventDefault();
-    navigate("/CreateProject");
+    if (fileName !== "") {
+      alert(fileName + " has been successfully opened");
+      navigate("/");
+    }
   }
 
   function handleBack(event) {
-    navigate(-1);
+    navigate("/");
   }
 
   const [checkedOne, setCheckedOne] = React.useState(false);
@@ -28,30 +34,36 @@ function OpenProject() {
   };
 
   return (
-    <div>
-      <Checkbox
-        label="Value 1"
-        value={checkedOne}
-        onChange={handleChangeOne}
-      />
-      <Checkbox
-        label="Value 2"
-        value={checkedTwo}
-        onChange={handleChangeTwo}
-      />
-    </div>
-    <div>
-      <input
-        type="text"
-        name="fileInput"
-        placeholder="D://rollups"
-        onChange={handleChange}
-      />
-      <button type="submit">Browse</button>
-      <br />
-      <button onClick={handleBack}>Back</button>
-      <button onClick={handleCreate}>Create</button>
+    <form>
+      <h3>Open NAIVE Project</h3>
+
+      <div>
+        <Checkbox
+          label="Project 1"
+          value={checkedOne}
+          onChange={handleChangeOne}
+        />
+        <br />
+        <Checkbox
+          label="Project 2"
+          value={checkedTwo}
+          onChange={handleChangeTwo}
+        />
+        <br />
+
+        <input
+          type="text"
+          name="fileInput"
+          placeholder="File Name"
+          onChange={handleChange}
+        />
+        <br />
+        <button onClick={handleBack}>Back</button>
+        <button type="submit" onClick={handleOpen}>
+          Open
+        </button>
       </div>
+    </form>
   );
 }
 
@@ -65,4 +77,3 @@ const Checkbox = ({ label, value, onChange }) => {
     </label>
   );
 };
-
