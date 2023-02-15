@@ -20,7 +20,12 @@ and along with that they have three different options to create, open or delete 
 If the analyst decided to create a new project, they will be allowed to browse the local files
 in their laptop or computer in order to create the project from the INVA/DE rollup file.
 If the file is chosen and there are no errors, a message will appear stating that the rollup 
-cration was sucessful. 
+creation was successful and will return you to the main page.  
+
+If the analyst decides to open a previous project, they will be redirected to the OpenProject page 
+which has a selection menu to open project 1 or project 2 (doing it for testing purposes) along with a 
+search bar which they can type in the project that they are looking for. There is also a back button 
+which will lead the analyst back to the main page. 
 
 
 
