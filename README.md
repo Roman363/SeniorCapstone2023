@@ -10,4 +10,19 @@ flask_cors: pip install flask_cors
 pymongo : pip instal pymongo
 yaml: pip install pyyaml
 
- 
+
+#Project description
+The Naive system will allow the analyst to create and define
+different network maps which show the nodes and the connections between them.
+The analyst will need to login with their initials in order to start using the system,
+and along with that they have three different options to create, open or delete a project.
+If the analyst decided to create a new project, they will be allowed to browse the local files
+in their laptop or computer in order to create the project from the INVA/DE rollup file.
+If the file is chosen and there are no errors, a message will appear stating that the rollup 
+cration was sucessful. 
+
+
+
+
+
+
