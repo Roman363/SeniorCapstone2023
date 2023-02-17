@@ -11,7 +11,7 @@ pymongo : pip instal pymongo
 yaml: pip install pyyaml
 
 
-#Project description
+# Project description
 
 The Naive system will allow the analyst to create and define
 different network maps which show the nodes and the connections between them.
@@ -26,6 +26,10 @@ If the analyst decides to open a previous project, they will be redirected to th
 which has a selection menu to open project 1 or project 2 (doing it for testing purposes) along with a 
 search bar which they can type in the project that they are looking for. There is also a back button 
 which will lead the analyst back to the main page. 
+
+# How to use Naive
+
+The naive interface
 
 
 
