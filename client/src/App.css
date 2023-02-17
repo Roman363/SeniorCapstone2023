@@ -75,3 +75,21 @@
   min-height: 800px;
   width: 75%;
 }
+
+/* .second-row {
+  position: absolute;
+  top: 100px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgb(132, 201, 231);
+}   */
+
+.second-row iframe {
+  display: block;
+  width: 200%;
+  height: 500px;
+  border: none;
+};
+  
+  
