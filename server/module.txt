@@ -1,0 +1,4 @@
+pip import pymongo
+pip import flask
+pip import flask_cors
+pip import pyyaml
