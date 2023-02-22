@@ -5,7 +5,7 @@ function Home() {
   const navigate = useNavigate();
   
   function handleCreate() {
-    navigate("/BrowseProject");
+    navigate("/CreateProject");
   };
   function handleOpen() {
     navigate("/OpenProject");

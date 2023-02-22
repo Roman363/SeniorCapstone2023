@@ -11,22 +11,25 @@ export default function CreateProject() {
     setFileName(e.target.value);
   }
 
-  function handleSubmit(event) {
-    event.preventDefault()
-    console.log(fileName)
-    if(fileName !== "") {
-    alert("Rollup created Successfully!")
-    navigate("/")
-    }else {
-      alert("Please enter project name")
-    }
+  function handleBack(event) {
+    navigate("/");
   }
 
+  function handleSubmit(event) {
+    event.preventDefault();
+    console.log(fileName);
+    if (fileName !== "") {
+      alert("Rollup created Successfully!");
+      navigate("/");
+    } else {
+      alert("Please enter project name");
+    }
+  }
 
   return (
     <form onSubmit={handleSubmit}>
       <h3>Create NAIVE Project</h3>
-      
+
       <h5>Enter project name</h5>
       <input
         type="text"
@@ -35,6 +38,8 @@ export default function CreateProject() {
         onChange={handleChange}
       ></input>
       <button type="submit">Enter</button>
+      <br />
+      <button onClick={handleBack}>Back</button>
     </form>
   );
 }

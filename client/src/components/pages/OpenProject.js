@@ -6,12 +6,9 @@ function OpenProject() {
   const navigate = useNavigate();
   const [fileName, setFileName] = useState("");
 
-  function handleChange(e) {
-    e.preventDefault();
-    setFileName(e.target.value);
-  }
   function handleOpen(event) {
     event.preventDefault();
+    console.log(fileName);
     if (fileName !== "") {
       alert(fileName + " has been successfully opened");
       navigate("/");
@@ -22,42 +19,47 @@ function OpenProject() {
     navigate("/");
   }
 
-  const [checkedOne, setCheckedOne] = React.useState(false);
-  const [checkedTwo, setCheckedTwo] = React.useState(false);
+  function handleChange(e) {
+    setFileName(e.target.value);
+    console.log(e.target.value);
+  }
 
-  const handleChangeOne = () => {
-    setCheckedOne(!checkedOne);
-  };
-
-  const handleChangeTwo = () => {
-    setCheckedTwo(!checkedTwo);
-  };
+  function FileDropdown() {
+    return (
+      <select onChange={handleChange} defaultChecked>
+        <option key="project1" value="project1">
+          project1
+        </option>
+        <option key="project2" value="project2">
+          project2
+        </option>
+        <option key="project3" value="project3">
+          project3
+        </option>
+        <option key="project4" value="project4">
+          project4
+        </option>
+        <option key="project5" value="project5">
+          project5
+        </option>
+        <option key="project6" value="project6">
+          project6
+        </option>
+      </select>
+    );
+  }
 
   return (
     <form>
       <h3>Open NAIVE Project</h3>
-
       <div>
-        <Checkbox
-          label="Project 1"
-          value={checkedOne}
-          onChange={handleChangeOne}
-        />
-        <br />
-        <Checkbox
-          label="Project 2"
-          value={checkedTwo}
-          onChange={handleChangeTwo}
-        />
+        <label>
+          Select Project
+          <br />
+          <FileDropdown name="projects" value={fileName} />
+        </label>
         <br />
 
-        <input
-          type="text"
-          name="fileInput"
-          placeholder="File Name"
-          onChange={handleChange}
-        />
-        <br />
         <button onClick={handleBack}>Back</button>
         <button type="submit" onClick={handleOpen}>
           Open
@@ -68,12 +70,3 @@ function OpenProject() {
 }
 
 export default OpenProject;
-
-const Checkbox = ({ label, value, onChange }) => {
-  return (
-    <label>
-      <input type="checkbox" checked={value} onChange={onChange} />
-      {label}
-    </label>
-  );
-};
