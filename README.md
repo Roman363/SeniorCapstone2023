@@ -29,7 +29,7 @@ which will lead the analyst back to the main page.
 
 # How to use Naive
 
-The naive interface
+The Naive interface first gives the user a series of prompts to ascertain the data that is going to be used within the system; requiring information about the Network - Internet, Intranet, or Otherwise - that will be observed. Once applied, the user in question will receive access to a network map created by the system given the default parameters. At this point, a user is free to alter the data given to them, via Node interaction – the Map can be told to invoke new interactions between network and devices or be told that a device may jeopardize the network and be set as ‘Attacked’, which the system will take any nodes reliant on the affected and mark them accordingly. When finished, the user can save and retrieve this information by exporting it to physical media or other digital media such as PDF. 
 
 
 
