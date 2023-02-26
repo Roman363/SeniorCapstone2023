@@ -13,7 +13,7 @@ function BrowseProject() {
   }
 
   function handleBack(event) {
-    navigate(-1);
+    navigate('/');
  }
 
   function handleChange(event) {

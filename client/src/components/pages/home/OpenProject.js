@@ -11,7 +11,7 @@ function OpenProject() {
     console.log(fileName);
     if (fileName !== "") {
       alert(fileName + " has been successfully opened");
-      navigate("/");
+      navigate("/MainDash");
     }
   }
 
@@ -26,7 +26,7 @@ function OpenProject() {
 
   function FileDropdown() {
     return (
-      <select onChange={handleChange} defaultChecked>
+      <select onChange={handleChange} defaultValue = {"project1"}>
         <option key="project1" value="project1">
           project1
         </option>

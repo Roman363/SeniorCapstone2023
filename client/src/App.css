@@ -1,4 +1,4 @@
-.App-logo {
+/* .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
@@ -76,6 +76,16 @@
   width: 75%;
 }
 
+
+.second-row iframe {
+  display: block;
+  width: 200%;
+  height: 500px;
+  border: none;
+}; */
+
+
+
 /* .second-row {
   position: absolute;
   top: 100px;
@@ -84,12 +94,3 @@
   bottom: 0;
   background-color: rgb(132, 201, 231);
 }   */
-
-.second-row iframe {
-  display: block;
-  width: 200%;
-  height: 500px;
-  border: none;
-};
-  
-  

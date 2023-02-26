@@ -3,19 +3,19 @@ import { useNavigate } from "react-router-dom";
 
 function Home() {
   const navigate = useNavigate();
-  
+
   function handleCreate() {
     navigate("/CreateProject");
-  };
+  }
   function handleOpen() {
     navigate("/OpenProject");
-  };
+  }
   function handleDelete() {
     navigate("/DeleteProject");
-  };
+  }
 
   return (
-    <form >
+    <form method="get">
       <div className="App">
         <div className="box-container">
           <h2>Naive</h2>
