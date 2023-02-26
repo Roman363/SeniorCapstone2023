@@ -14,7 +14,7 @@ function BrowseProject() {
 
   function handleBack(event) {
     navigate(-1);
- }
+  }
 
   function handleChange(event) {
     event.preventDefault();
