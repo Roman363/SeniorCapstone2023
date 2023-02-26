@@ -31,6 +31,8 @@ function App() {
           <Route exact path="/NodeColor" element={<NodeColor />} />
           <Route exact path="/SpecifyNodeStatusAlert" element={<SpecifyNodeStatusAlert />} />
           <Route exact path="/PathColor" element={<PathColor />} />
+          <Route exact path="/NetworkMap" element={<NetworkMap />} />
+          <Route exact path="/Homer" element={<Home />} />
           <Route path="*" element={<WorngPath />} />
         </Routes>
       </div>
