@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" type="text/css" href="teststyle.css">
+</head>
+<body>
+    <header id="mainNav">
+        <h2 id="naive">Naive</h2>
+        <!-- <a href="" id="cyberVA">Cyber VA</a>
+        <a href="" id="assessmentDash">Assessment Dashboard</a> -->
+    </header>
+
+
+    <form method="get">
+        <div id="App">
+          <div class="box-container">
+            <div class="button-container">
+              <div class="content-container">
+                <label>Please enter user initials:</label>
+                <input
+                  type="text"
+                  id="UserInitial"
+                  placeholder="Ex: J.D"
+                ></input>
+                <button onClick={handleCreate}>Create Project</button>
+                <button onClick={handleOpen}>Open Project</button>
+                <button onClick={handleDelete}>Delete Project</button>
+              </div>
+              <div></div>
+            </div>
+          </div>
+        </div>
+      </form>
+
+      <div id="footer">
+        <button onclick={handleQuit}>Quit</button>
+      </div>
+</body>
+</html>
+
+<!-- <body>
+    <form method="get">
+        <header id="mainNav">
+           <a href="" id="cyberVA">Cyber VA</a>
+           <a href="" id="assessmentDash">Assessment Dashboard</a>
+
+
+        </header>
+            <div id="box-container">
+                <h2>Naive</h2>
+            </div>
+        </div>
+    </form>
+</body> -->

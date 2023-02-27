@@ -13,7 +13,7 @@ function BrowseProject() {
   }
 
   function handleBack(event) {
-    navigate(-1);
+    navigate('/');
  }
 
   function handleChange(event) {
@@ -29,6 +29,8 @@ function BrowseProject() {
   return (
     <form onSubmit={handleSubmit}>
       <h3>Create NAIVE Project</h3>
+
+
       <input type="text" name="fileInput" placeholder='D://rollups' onChange={handleChange}/>
       <button type="submit" >Browse</button>
       <br />
