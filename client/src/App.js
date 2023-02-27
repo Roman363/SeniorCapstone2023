@@ -17,6 +17,7 @@ import PathColor from "./components/pages/node/PathColor";
 import MainDashboard from "./components/pages/dashBoard/MainDashBoard";
 import Cyberdashboard from "./components/pages/dashBoard/cyberDash/Cyberdashboard";
 import AssessmentDash from "./components/pages/dashBoard/assessmentDash/AssessmentDash";
+import Demo from "./components/pages/demo";
 
 
 function App() {
@@ -39,6 +40,7 @@ function App() {
           <Route exact path="/Cyberdashboard" element={<Cyberdashboard />} />
           <Route exact path="/AssessmentDash" element={<AssessmentDash />} />
           <Route exact path="/MainDash" element={<MainDashboard />} />
+          <Route exact path="/Demo" element={<Demo />} />
           <Route exact path="/Homer" element={<Home />} />
           <Route path="*" element={<WorngPath />} />
         </Routes>
