@@ -13,7 +13,14 @@ function createData(systemIP, associations, op, activeService, protocol, sentPac
 }
 
 const statistics = [
-  createData("157.143.80.158", "Open", "Windows", "Windows Bot Service", "VTP", "350", "Low")
+  createData("157.143.80.158", "Open", "Windows", "Windows Bot Service", "VTP", "350", "Low"),
+  createData("157.143.80.158", "Open", "Windows", "Windows Bot Service", "VTP", "350", "Low"),
+  createData("157.143.80.158", "Open", "Windows", "Windows Bot Service", "VTP", "350", "Low"),
+  createData("157.143.80.158", "Open", "Windows", "Windows Bot Service", "VTP", "350", "Low"),
+  createData("157.143.80.158", "Open", "Windows", "Windows Bot Service", "VTP", "350", "Low"),
+  createData("157.143.80.158", "Open", "Windows", "Windows Bot Service", "VTP", "350", "Low"),
+  createData("157.143.80.158", "Open", "Windows", "Windows Bot Service", "VTP", "350", "Low"),
+
 ];
 
 export default function BasicTable() {
