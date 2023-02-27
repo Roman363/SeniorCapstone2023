@@ -1,4 +1,4 @@
-/*.App-logo {
+/* .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
@@ -9,7 +9,7 @@
   }
 }
 
-.App {
+#App {
   background-color: #041E42;
   min-height: 100vh;
   display: flex;
@@ -84,8 +84,6 @@
   border: none;
 };
 
-
-
  .second-row {
   position: absolute;
   top: 100px;
@@ -93,85 +91,95 @@
   right: 0;
   bottom: 0;
   background-color: rgb(132, 201, 231);
-} */
+}  */
 
 body {
-  background-color: #B1B3B3;
-  margin: 0;
-  padding: 0;
+    background-color: #B1B3B3;
+    margin: 0;
+    padding: 0;
 }
 
 #naive, #create, #browse, #delete, #open {
-  color: #B1B3B3;
-  display: inline;
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: #FF8200;
-  font-size: 60px;
-  font-family: Arial, Helvetica, sans-serif;
-  position: relative;
-  left: 45px;
-  top: 15px;
-  padding-right: 100px;
+    color: #B1B3B3;
+    display: inline;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #FF8200;
+    font-size: 60px;
+    font-family: Arial, Helvetica, sans-serif;
+    position: relative;
+    left: 45px;
+    top: 15px;
+    padding-right: 100px;
 }
 
 .content-container {
-  position: absolute;
-  display: block;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+    position: absolute;
+    display: block;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .content-container label{
-  display: block;
-  color:#041E42;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 40px;
-  position: relative;
-  left: 20px;
+    display: block;
+    color:#041E42;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 40px;
+    position: relative;
+    left: 20px;
 }
 
 .content-container input {
-  display: block;
-  border-radius: 20px;
-  border-width: 4px;
-  width: 1000px;
-  height: 50px;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 30px;
-  padding-left: 15px;
+    display: block;
+    border-radius: 20px;
+    width: 1000px;
+    height: 50px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+    padding-left: 15px;
 }
 
 .content-container button{
-  display: block;
-  padding: 10px;
-  background-color: #041E42;
-  border-width: 5px;
-  border-color: #FF8200;
-  border-radius: 30px;
-  color: #ffffff;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 30px;
-  margin: 20px 0px;
-  position: relative;
-  left: 50%;
-  top: 30px;
-  transform: translate(-50%, -50%);
+    display: block;
+    padding: 10px;
+    background-color: #041E42;
+    border-width: 5px;
+    border-color: #FF8200;
+    border-radius: 30px;
+    color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+    margin: 20px 0px;
+    position: relative;
+    left: 50%;
+    top: 30px;
+    transform: translate(-50%, -50%);
 
 }
 
 #mainNav {
-  display: block;
-  z-index: 10000;
-  position: sticky;
-  top: 0px;
-  width: 100%;
-  height: 100px;
-  background-color: #041E42;
-  border-bottom-style: solid;
-  border-width: 10px;
-  border-color: #FF8200;
-  
+    display: block;
+    z-index: 10000;
+    position: sticky;
+    top: 0px;
+    width: 100%;
+    height: 100px;
+    background-color: #041E42;
+    border-bottom-style: solid;
+    border-width: 10px;
+    border-color: #FF8200;
+    
+}
+
+
+#footer {
+    display: block;
+    z-index: 0;
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    height: 100px;
+    background-color: #041E42;
 }
 
 #cyberVA {
@@ -204,31 +212,20 @@ body {
   right: 380px;
 }
 
-
-#footer {
-  display: block;
-  z-index: 0;
-  position: absolute;
-  bottom: 0px;
-  width: 100%;
-  height: 100px;
-  background-color: #041E42;
-}
-
 /* #footer button {
-  position: absolute;
-  padding: 10px 30px;
-  background-color: #041E42;
-  border-width: 5px;
-  border-color: #FF8200;
-  border-radius: 30px;
-  color: #ffffff;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 30px;
-  margin: 20px 0px;
-  right: 30px;
-
+    position: absolute;
+    padding: 10px 30px;
+    background-color: #041E42;
+    border-width: 5px;
+    border-color: #FF8200;
+    border-radius: 30px;
+    color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+    margin: 20px 0px;
+    left: 30px;
 } */
+
 
 #quit {
   position: absolute;
@@ -307,7 +304,3 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 30px;
 }
-
-/* #cyberVA, #assessmentDash {
-  color: #ffffff;
-} */

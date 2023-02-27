@@ -30,13 +30,6 @@ export default function CustomizationsAlerts(){
     return(
     <form onSubmit={handleSubmit}>
       <h3>Customizations done successfully</h3>
-      
-      <input
-        type="text"
-        name="fileInput"
-        placeholder="Customization Alerts"
-        onChange={handleChange}
-      ></input>
       <button type="submit">Continue</button>
     </form>
         
