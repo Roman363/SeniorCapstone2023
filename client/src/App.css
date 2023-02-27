@@ -92,4 +92,10 @@
   border: none;
 };
   
-  
+  #networkmapBackgroud {
+    display: block;
+    width: 800px;
+    height: 500px;
+    padding: 20px;
+    border: none;
+  }
