@@ -18,7 +18,8 @@ import MainDashboard from "./components/pages/dashBoard/MainDashBoard";
 import Cyberdashboard from "./components/pages/dashBoard/cyberDash/Cyberdashboard";
 import AssessmentDash from "./components/pages/dashBoard/assessmentDash/AssessmentDash";
 import Demo from "./components/pages/demo";
-
+import NetworkStatistics from "./components/pages/dashBoard/cyberDash/NetworkStatistics";
+import NetworkVulnerabilities from "./components/pages/dashBoard/cyberDash/NetworkVulnerabilities";
 
 function App() {
   return (
@@ -41,7 +42,10 @@ function App() {
           <Route exact path="/AssessmentDash" element={<AssessmentDash />} />
           <Route exact path="/MainDash" element={<MainDashboard />} />
           <Route exact path="/Demo" element={<Demo />} />
-          <Route exact path="/Homer" element={<Home />} />
+          <Route exact path="/Home" element={<Home />} />
+          <Route exact path="/NetworkStatistics" element={<NetworkStatistics />} />
+          <Route exact path="/NetworkVulnerabilities" element={<NetworkVulnerabilities />} />
+
           <Route path="*" element={<WorngPath />} />
         </Routes>
       </div>
