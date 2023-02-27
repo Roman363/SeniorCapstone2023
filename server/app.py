@@ -2,22 +2,18 @@ from flask import Flask, render_template, request, jsonify
 from pymongo import MongoClient
 from bson.objectid import ObjectId
 from flask_cors import CORS
-import yaml
+from databaseConnector import *
+import yaml, os
+
+absolute_path = os.path.dirname(__file__)
 
 #Starts Flask Application
 app = Flask(__name__)
 
-#Loads configuration file for the server
-config = yaml.safe_load(open('database.yaml'))
+DatabaseConnection.setUp(absolute_path)
 
-#Creates the string needed to connect to the server
-CONNECTION_STRING = config['uri']
-
-#Creates an instance of the server using the connection
-client = MongoClient(CONNECTION_STRING)
-
-#Creates an instance of a database
-db = client[config['cluster']]
+client = DatabaseConnection._client
+db = DatabaseConnection._db
 
 CORS(app)
 
@@ -33,15 +29,12 @@ def data():
     # POST a data to database
     if request.method == 'POST':
         body = request.json
+        print(request.json)
         firstName = body['firstName']
         lastName = body['lastName']
         emailId = body['emailId'] 
         # db.users.insert_one({
-        db['users'].insert_one({
-            "firstName": firstName,
-            "lastName": lastName,
-            "emailId":emailId
-        })
+        db['users'].insert_one(body)
         return jsonify({
             'status': 'Data is posted to MongoDB!',
             'firstName': firstName,

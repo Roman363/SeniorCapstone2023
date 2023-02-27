@@ -1,4 +1,7 @@
-pip import pymongo
-pip import flask
-pip import flask_cors
-pip import pyyaml
+pip install pymongo
+pip install flask
+pip install flask_cors
+pip install pyyaml
+pip install xmltodict
+
+
