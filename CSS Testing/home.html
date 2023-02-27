@@ -1,25 +1,17 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
-
-function Home() {
-  const navigate = useNavigate();
-
-  function handleCreate() {
-    navigate("/CreateProject");
-  }
-  function handleOpen() {
-    navigate("/OpenProject");
-  }
-  function handleDelete() {
-    navigate("/DeleteProject");
-  }
-
-  return (
-    <body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" type="text/css" href="teststyle.css">
+</head>
+<body>
     <header id="mainNav">
         <h2 id="naive">Naive</h2>
-        {/* <a href="" id="cyberVA">Cyber VA</a> Change this when doing the template part 2 with assessment dashboard and VA Dashboard
-        <a href="" id="assessmentDash">Assessment Dashboard</a> */}
+        <!-- <a href="" id="cyberVA">Cyber VA</a>
+        <a href="" id="assessmentDash">Assessment Dashboard</a> -->
     </header>
 
 
@@ -45,11 +37,22 @@ function Home() {
       </form>
 
       <div id="footer">
-        <button>Quit</button> 
-        {/* onclick={handleQuit} */}
+        <button onclick={handleQuit}>Quit</button>
       </div>
 </body>
-  );
-}
+</html>
 
-export default Home;
+<!-- <body>
+    <form method="get">
+        <header id="mainNav">
+           <a href="" id="cyberVA">Cyber VA</a>
+           <a href="" id="assessmentDash">Assessment Dashboard</a>
+
+
+        </header>
+            <div id="box-container">
+                <h2>Naive</h2>
+            </div>
+        </div>
+    </form>
+</body> -->
