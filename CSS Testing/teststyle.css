@@ -99,7 +99,7 @@ body {
     padding: 0;
 }
 
-#naive, #create, #browse, #delete, #open {
+#naive, #create, #browse, #delete, #open, #main {
     color: #B1B3B3;
     display: inline;
     -webkit-text-stroke-width: 1px;

@@ -15,11 +15,21 @@
   </header>
 
 
-  <form method="get">
-      <div id="App">
-        
-      </div>
-    </form>
+  <form>
+    <div class="content-container">
+        <div class="main">
+
+            <label>
+                Select Project
+                <br />
+                <FileDropdown id="FileDropdown"name="projects" value={fileName} />
+            </label>
+
+            <button type="submit" onClick={handleOpen}>Open</button>
+
+        </div>
+    </div>
+</form>
 
     <div id="footer">
       <button id="quit">Quit</button> 
@@ -45,3 +55,4 @@
         </div>
     </form>
 </body> -->
+
