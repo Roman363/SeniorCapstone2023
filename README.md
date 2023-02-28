@@ -66,6 +66,11 @@ Laptop Specs -
 
 # Environmental Information 
 
+Testing database : Located in MongoDB 
+url: https://cloud.mongodb.com/v2/63e7ecdae91bc92f7b039373#/metrics/replicaSet/63e863ce80db0533d656da05/explorer/Naive/canvasmaps/find
+
+Testing NAIVE: Localhost and Kali Linux
+
 
 
 
