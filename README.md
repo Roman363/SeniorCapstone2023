@@ -57,14 +57,14 @@ The Naive interface first gives the user a series of prompts to ascertain the da
 
 5.In the Cyber VA Dashboard, you will be able to make changes to the network statistics, vulnerabilities, network map and TAK map by allowing edits, deletions, additions, and the ability to export each of these options. 
 
-#Dependencies
+# Dependencies
 Linux Version - Kali Linux 2022.4 Debian 11
 
 Laptop Specs - 
 
 
 
-#Environmental Information 
+# Environmental Information 
 
 
 
