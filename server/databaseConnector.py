@@ -3,6 +3,7 @@ Module dedicated for database interactions
 """
 
 import yaml
+import certifi
 from pymongo import MongoClient
 
    
@@ -41,7 +42,7 @@ class DatabaseConnection:
         CONNECTION_STRING = config['uri']
 
         #Creates an instance of the server using the connection
-        DatabaseConnection._client = MongoClient(CONNECTION_STRING)
+        DatabaseConnection._client = MongoClient(CONNECTION_STRING, tlsCAFile= certifi.where())
 
         #Creates an instance of a database
         DatabaseConnection._db = DatabaseConnection._client[config['cluster']]  

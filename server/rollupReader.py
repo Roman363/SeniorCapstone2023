@@ -104,12 +104,11 @@ def sendToDatabase(infoList: list[tarfile.TarInfo], absolute_path) -> None:
         #Will store the data needed for the database
         data = None
         
-        if fileType == "xml":
+        if fileType == "xml" or fileType == "nessus":
             data = xmlReader.getData(path)
         else:
-            print(fileType)
-            continue
-        
+           continue 
+                    
         #If data was not found or unreadable then skip the file
         if len(data) == 0:
             print("Couldn't read file: " + infoFile.path)
@@ -172,7 +171,7 @@ def main(path, rollupPath):
 absolute_path = os.path.dirname(__file__)
 
 #change this to the local rollup path
-rollupPath = r"C:\Users\ralex\Downloads\20221027-144534-SQ.tar.gz"
+rollupPath = r"C:\Users\anton\Documents\20221027-144534-SQ.tar.gz"
 
 #extractAllFiles(rollupPath, absolute_path)
 main(absolute_path, rollupPath)
