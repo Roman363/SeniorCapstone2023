@@ -42,8 +42,8 @@ export default function MainDashBoard() {
     <body>
   <header id="mainNav">
       <h2 id="naive">Naive</h2>
-      <button id="cyberVA">Cyber VA</button> 
-      <button id="assessmentDash">Assessment Dashboard</button>
+      <button id="cyberVA" onClick={handleCyberdashBoard}>Cyber VA</button> 
+      <button id="assessmentDash" onClick={handleAssessmentDashBoard}>Assessment Dashboard</button>
   </header>
 
 
@@ -53,6 +53,11 @@ export default function MainDashBoard() {
 
             <label>
                 Select Project
+                <br/>
+                <iframe
+        title="myframe"
+        src="https://charts.mongodb.com/charts-team-6-sun-city-software-rsomw/embed/charts?id=63eb0411-505d-4876-887c-f52740c9916f&maxDataAge=3600&theme=dark&autoRefresh=true"
+        ></iframe>
                 <br />
             </label>
 
@@ -63,7 +68,7 @@ export default function MainDashBoard() {
     <div id="footer">
       <button id="quit">Quit</button> 
       <button id="settings">Settings</button>
-      <button id="addNode">Add Node</button>
+      <button id="addNode" onClick={handleAddNode}>Add Node</button>
       <button id="deleteNode">Delete Node</button>
       {/* <!-- onclick={handleQuit} --> */}
     </div>
