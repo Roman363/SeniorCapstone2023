@@ -50,22 +50,37 @@ function OpenProject() {
   }
 
   return (
+    <body>
+    <header id="mainNav">
+        <h2 id="open">Open NAIVE Projects</h2>
+        {/* <!-- <a href="" id="cyberVA">Cyber VA</a>
+        <a href="" id="assessmentDash">Assessment Dashboard</a> --> */}
+    </header>
+    
+      
     <form>
-      <h3>Open NAIVE Project</h3>
-      <div>
-        <label>
-          Select Project
-          <br />
-          <FileDropdown name="projects" value={fileName} />
-        </label>
-        <br />
+      <div class="content-container">
+        <div class="open">
 
-        <button onClick={handleBack}>Back</button>
-        <button type="submit" onClick={handleOpen}>
-          Open
-        </button>
-      </div>
-    </form>
+            <label>
+              Select Project
+              <br />
+              <FileDropdown id="FileDropdown"name="projects" value={fileName} />
+            </label>
+            <br />
+
+            <button type="submit" onClick={handleOpen}>Open</button>
+            <button onClick={handleBack}>Back</button>
+          </div>
+        </div>
+      </form>
+
+      <div id="footer">
+      <button id="quit">Quit</button> 
+      {/* onclick={handleQuit} */}
+    </div>
+
+    </body>
   );
 }
 

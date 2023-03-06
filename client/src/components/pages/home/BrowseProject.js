@@ -27,16 +27,30 @@ function BrowseProject() {
   }
   
   return (
+    <body>
+    <header id="mainNav">
+        <h2 id="browse">Browse NAIVE Projects</h2>
+        {/* <a href="" id="cyberVA">Cyber VA</a> */}
+        {/* <a href="" id="assessmentDash">Assessment Dashboard</a> */}
+    </header>
+
+
     <form onSubmit={handleSubmit}>
-      <h3>Create NAIVE Project</h3>
-
-
-      <input type="text" name="fileInput" placeholder='D://rollups' onChange={handleChange}/>
-      <button type="submit" >Browse</button>
-      <br />
-      <button onClick={handleBack}>Back</button>
-      <button onClick={handleCreate}>Create</button>
+      <div class="content-container">
+      
+        <input type="text" name="fileInput" placeholder='D://rollups' onChange={handleChange}/>
+        <button type="submit" >Browse</button>
+        <button onClick={handleBack}>Back</button>
+        {/* <button onClick={handleCreate}>Create</button> */}
+      </div>
     </form>
+
+
+    <div id="footer">
+      <button id="quit">Quit</button> 
+      {/* onclick={handleQuit} */}
+    </div>
+</body>
   )
 }
 

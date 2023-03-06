@@ -31,6 +31,7 @@ function App() {
           <Route exact path="/BrowseProject" element={<BrowseProject />} />
           <Route exact path="/OpenProject" element={<OpenProject />} />
           <Route exact path="/DeleteProject" element={<DeleteProject />} />
+          <Route exact path="/NetworkMap" element={<NetworkMap />} />
           <Route exact path="/CustomizationsAlerts" element={<CustomizationsAlerts />} />
           <Route exact path="/CustomizeNode" element={<CustomizeNode />} />
           <Route exact path="/ModifyImage" element={<ModifyImage />} />

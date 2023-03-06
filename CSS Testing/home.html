@@ -8,37 +8,36 @@
     <link rel="stylesheet" type="text/css" href="teststyle.css">
 </head>
 <body>
-    <header id="mainNav">
-        <h2 id="naive">Naive</h2>
-        <!-- <a href="" id="cyberVA">Cyber VA</a>
-        <a href="" id="assessmentDash">Assessment Dashboard</a> -->
-    </header>
+  <header id="mainNav">
+      <h2 id="naive">Naive</h2>
+      <button id="cyberVA">Cyber VA</button> 
+      <button id="assessmentDash">Assessment Dashboard</button>
+  </header>
 
 
-    <form method="get">
-        <div id="App">
-          <div class="box-container">
-            <div class="button-container">
-              <div class="content-container">
-                <label>Please enter user initials:</label>
-                <input
-                  type="text"
-                  id="UserInitial"
-                  placeholder="Ex: J.D"
-                ></input>
-                <button onClick={handleCreate}>Create Project</button>
-                <button onClick={handleOpen}>Open Project</button>
-                <button onClick={handleDelete}>Delete Project</button>
-              </div>
-              <div></div>
-            </div>
-          </div>
+  <form>
+    <div class="content-container">
+        <div class="main">
+
+            <label>
+                Select Project
+                <br />
+                <FileDropdown id="FileDropdown"name="projects" value={fileName} />
+            </label>
+
+            <button type="submit" onClick={handleOpen}>Open</button>
+
         </div>
-      </form>
+    </div>
+</form>
 
-      <div id="footer">
-        <button onclick={handleQuit}>Quit</button>
-      </div>
+    <div id="footer">
+      <button id="quit">Quit</button> 
+      <button id="settings">Settings</button>
+      <button id="addNode">Add Node</button>
+      <button id="deleteNode">Delete Node</button>
+      <!-- {/* onclick={handleQuit} */} -->
+    </div>
 </body>
 </html>
 
@@ -56,3 +55,4 @@
         </div>
     </form>
 </body> -->
+

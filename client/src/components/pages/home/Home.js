@@ -45,7 +45,7 @@ function Home() {
       </form>
 
       <div id="footer">
-        <button>Quit</button> 
+        <button id="quit">Quit</button> 
         {/* onclick={handleQuit} */}
       </div>
 </body>

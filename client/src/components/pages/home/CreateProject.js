@@ -27,19 +27,32 @@ export default function CreateProject() {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h3>Create NAIVE Project</h3>
+<body>
+    <header id="mainNav">
+        <h2 id="create">Create NAIVE Project</h2>
+        {/* <!-- <a href="" id="cyberVA">Cyber VA</a>
+        <a href="" id="assessmentDash">Assessment Dashboard</a> --> */}
+    </header>
 
-      <h5>Enter project name</h5>
-      <input
-        type="text"
-        name="fileInput"
-        placeholder="Project Name"
-        onChange={handleChange}
-      ></input>
-      <button type="submit">Enter</button>
-      <br />
-      <button onClick={handleBack}>Back</button>
+
+    <form onSubmit={handleSubmit}>
+      <div class="content-container">
+        <label>Enter project name</label>
+        <input
+          type="text"
+          name="fileInput"
+          placeholder="Project Name"
+          onChange={handleChange}
+        ></input>
+        <button type="submit">Enter</button>
+        <button onClick={handleBack}>Back</button>
+      </div>
     </form>
+
+    <div id="footer">
+        <button id="quit">Quit</button> 
+        {/* onclick={handleQuit} */}
+      </div>
+</body>
   );
 }

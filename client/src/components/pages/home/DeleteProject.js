@@ -25,7 +25,7 @@ export default function DeleteProject() {
   }
 
   function FileDropdown() {
-    return (
+    return (  
     <select onChange={handleChange} defaultChecked>
       <option key="project1" value="project1">
         project1
@@ -49,21 +49,40 @@ export default function DeleteProject() {
     );
   }
   return (
-    <form>
-      <h3>DeleteProject</h3>
-      <div>
-        <label>
-          Select Project
-          <br />
-          <FileDropdown name="project" value={fileName} />
-        </label>
-        <br />
+    <body>
+    <header id="mainNav">
+        <h2 id="delete">Delete NAIVE Projects</h2>
+        {/* <!-- <a href="" id="cyberVA">Cyber VA</a>
+        <a href="" id="assessmentDash">Assessment Dashboard</a> --> */}
+    </header>
 
-        <button onClick={handleBack}>Back</button>
-        <button type="submit" onClick={handleDelete}>
-          Delete
-        </button>
+
+    <form>
+      <div class="content-container">
+        <div class="delete">
+        
+        <div>
+          <label>
+            Select Project:
+            <br />
+            <FileDropdown id="FileDropdown" name="project" value={fileName} />
+            
+          </label>
+
+          <button type="submit" onClick={handleDelete}>Delete</button>
+          <button onClick={handleBack}>Back</button>
+        </div>
+        </div>
       </div>
     </form>
+
+
+    <div id="footer">
+      <button id="quit">Quit</button> 
+      {/* onclick={handleQuit} */}
+    </div>
+</body>
+
+    
   );
 }
