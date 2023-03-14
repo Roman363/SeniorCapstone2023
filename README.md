@@ -1,4 +1,4 @@
-# CS4311_Naive_-Team-6-Sun-City-Software-_Spring2023
+# CS4311_Naive_6SunCitySoftware_Spring2023
 
 #Version Number : 1.1
 
