@@ -51,9 +51,10 @@ def data():
     
     # GET all data from database
     if request.method == 'GET':
-        allData = db['users'].find()
+        allData = db['user'].find()
         dataJson = []
         for data in allData:
+            #print(data)
             id = data['_id']
             firstName = data['firstName']
             lastName = data['lastName']
@@ -65,7 +66,8 @@ def data():
                 'emailId': emailId
             }
             dataJson.append(dataDict)
-        print(dataJson)
+        #print(dataJson)
+        print(jsonify(dataJson))
         return jsonify(dataJson)
 
         
