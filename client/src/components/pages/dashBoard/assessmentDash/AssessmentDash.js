@@ -20,6 +20,9 @@ export default function AssessmentDash() {
     navigate("/AssessmentDash");
   }
 
+  function handleAddNode(){
+    navigate("/CustomizeNode");
+  }
 
   // menubar selection
 
@@ -36,26 +39,30 @@ export default function AssessmentDash() {
   }
 
   return (
-    <form id="mainDashBoard">
-      <h3>NAIVE</h3>
-      <h5>File Name</h5>
+    <body>
+  <header id="mainNav">
+      <h2 id="naive">Naive</h2>
+      <button id="cyberVA" onClick={handleCyberdashBoard}>Cyber VA</button> 
+      <button id="assessmentDash" onClick={handleAssessmentDashBoard}>Assessment Dashboard</button>
+  </header>
 
-      <button onClick={handleMainDashBoard}>Main Dashboard</button>
-      <button onClick={handleCyberdashBoard}>Cyber VA Dashboard</button>
-      <button onClick={handleAssessmentDashBoard}>Assessment Dashboard</button>
-      <br />
 
-      {/* menubar */}
-      <Select
-        options={options}
-        onChange={handleMenu}
-      />
+  <form>
+    <div class="content-container">
+        <div class="main">
 
-      <br />
 
-      <button>Add Node</button>
-      <button>Settings</button>
-      <button>Quit</button>
-    </form>
+        </div>
+    </div>
+</form>
+
+    <div id="footer">
+      <button id="quit">Quit</button> 
+      <button id="settings">Settings</button>
+      <button id="addNode" onClick={handleAddNode}>Add Node</button>
+      <button id="deleteNode">Delete Node</button>
+      {/* <!-- onclick={handleQuit} --> */}
+    </div>
+</body>
   );
 }
