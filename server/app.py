@@ -1,16 +1,15 @@
 from flask import Flask, render_template, request, jsonify
-from pymongo import MongoClient
 from bson.objectid import ObjectId
 from flask_cors import CORS
-from databaseConnector import *
-import yaml, os
+from Database.databaseConnector import *
+import os
 
 absolute_path = os.path.dirname(__file__)
 
 #Starts Flask Application
 app = Flask(__name__)
 
-DatabaseConnection.setUp(absolute_path)
+DatabaseConnection.setUp()
 
 client = DatabaseConnection._client
 db = DatabaseConnection._db
@@ -108,6 +107,33 @@ def onedata(id):
 
         print('\n # Update successful # \n')
         return jsonify({'status': 'Data id: ' + id + ' is updated!'})
+
+#Creates a Post and Get Response for the server
+@app.route('/canvasipnodes', methods=['POST', 'GET'])
+def ipdata():
+    
+    # GET all data from database
+    if request.method == 'GET':
+        allData = db['canvasmaps/IPNodes'].find()
+        dataJson = []
+        for data in allData:
+            id = data['_id']
+            ip = data['@ip']
+            type = data['type']
+            status = data['status']
+            hostname = data['hostname']
+            label = data['label']
+            dataDict = {
+                'id': str(id),
+                'ip': ip,
+                'type': type,
+                'status': status,
+                'hostname': hostname,
+                'label': label
+            }
+            dataJson.append(dataDict)
+        print(dataJson)
+        return jsonify(dataJson)
 
 
 if __name__ == '__main__':
