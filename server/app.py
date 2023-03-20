@@ -118,6 +118,56 @@ def onedata(id):
         print('\n # Update successful # \n')
         return jsonify({'status': 'Data id: ' + id + ' is updated!'})
 
+#Creates a Post and Get Response for the server
+@app.route('/Nmap', methods=['POST', 'GET'])
+def NmapData():
+    
+    # GET all data from database
+    if request.method == 'GET':
+        allData = db['nmap/IP'].find()
+        dataJson = []
+        for data in allData:
+            id = data['_id']
+            ip = data['_ip']
+            scanner = data['@scanner']
+            dataDict = {
+                'id': str(id),
+                'ip': ip,
+                'scanner': scanner
+                
+            }
+            dataJson.append(dataDict)
+        print(dataJson)
+        return jsonify(dataJson)
+
+#Creates a Post and Get Response for the server
+@app.route('/canvasipnodes', methods=['POST', 'GET'])
+def ipdata():
+    
+    # GET all data from database
+    if request.method == 'GET':
+        allData = db['canvasmaps/IPNodes'].find()
+        dataJson = []
+        for data in allData:
+            id = data['_id']
+            ip = data['@ip']
+            type = data['type']
+            status = data['status']
+            hostname = data['hostname']
+            label = data['label']
+            dataDict = {
+                'id': str(id),
+                'ip': ip,
+                'type': type,
+                'status': status,
+                'hostname': hostname,
+                'label': label
+            }
+            dataJson.append(dataDict)
+        print(dataJson)
+        return jsonify(dataJson)
+
+
 
 if __name__ == '__main__':
     app.debug = True
