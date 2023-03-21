@@ -1,6 +1,6 @@
 # CS4311_Naive_6SunCitySoftware_Spring2023
 
-#Version Number : 1.1
+#Version Number : 1.2
 
 
 This is Team 6 with our own version of the Naive Project we have been working on since the fall 2022 semester.
@@ -12,6 +12,18 @@ flask : pip install flask
 flask_cors: pip install flask_cors
 pymongo : pip instal pymongo
 yaml: pip install pyyaml
+
+To run the project properly, run with two terminals in which one runs the app.py file located
+in the server folder, while the other terminal is running the frontend code.
+
+To run client code : 
+1. use "cd client" to switch into the client folder
+2. put in command "npm start" which will enable you to view the site for NAIVE via localhost
+
+To run server code:
+1. In another terminal, use the command "cd server" to switch into the server folder 
+2. Afterwards use the command "python app.py" for the app.py file to run and you will see the data retrieved 
+from MongoDB for the tables and also the maps that we are creating from the data.
 
 
 # Project description
