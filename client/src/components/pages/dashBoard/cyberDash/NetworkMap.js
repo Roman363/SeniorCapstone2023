@@ -1,18 +1,71 @@
-import React from "react";
-
-function NetworkMap() {
-  return (
-    <div class="second-row">
-      <h3>NetworkMap</h3>
+import React, { Component } from 'react'
+import axios from 'axios';
 
 
-      <iframe
-        title="myframe"
-        src="https://charts.mongodb.com/charts-team-6-sun-city-software-rsomw/embed/charts?id=63eb0411-505d-4876-887c-f52740c9916f&maxDataAge=3600&theme=dark&autoRefresh=true"
-        ></iframe>
-        <div>work work</div>
-    </div>
-  );
+function getMaps(){
+  return axios.get('http://127.0.0.1:5000/Nmap')
+      
+}
+
+
+
+
+class NetworkMap extends Component {
+  constructor(props) {
+      super(props)
+      this.state = {
+          nodes: []
+      }
+      //this.addUser = this.addUser.bind(this);
+      //this.editUser = this.editUser.bind(this);
+      //this.deleteUser = this.deleteUser.bind(this);
+  }
+  
+  
+  componentDidMount() {
+      getMaps().then((res) => {
+          this.setState({ nodes: res.data });
+      });
+  }
+
+
+  
+
+
+
+  render() {
+      return (
+          
+          <div>
+              <h2 className="text-center">Node List</h2>
+              
+              <br></br>
+              <div className="row">
+                  <table className="table table-striped table-bordered">
+                      <thead>
+                          <tr>
+                              <th> IP</th>
+                              <th> Scanner</th>
+                              
+                          </tr>
+                      </thead>
+                      <tbody>
+                          {
+                              this.state.nodes.map(
+                                  node =>
+                                      <tr key={node.id}>
+                                          <td> {node.ip} </td>
+                                          <td> {node.scanner}</td>
+                    
+                                      </tr>
+                              )
+                          }
+                      </tbody>
+                  </table>
+              </div>
+          </div>
+      )
+  }
 }
 
 export default NetworkMap;

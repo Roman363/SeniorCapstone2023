@@ -20,6 +20,10 @@ import AssessmentDash from "./components/pages/dashBoard/assessmentDash/Assessme
 import Demo from "./components/pages/demo";
 import NetworkStatistics from "./components/pages/dashBoard/cyberDash/NetworkStatistics";
 import NetworkVulnerabilities from "./components/pages/dashBoard/cyberDash/NetworkVulnerabilities";
+import ListNodeComponent from "./components/pages/dashBoard/cyberDash/ListNodeComponent";
+import DashboardDisplay from "./components/pages/dashBoard/cyberDash/DashboardDisplay";
+import Dashboard from "./components/pages/dashBoard/cyberDash/Dashboard";
+import TakMap from "./components/pages/dashBoard/cyberDash/TakMap";
 
 function App() {
   return (
@@ -46,6 +50,10 @@ function App() {
           <Route exact path="/Home" element={<Home />} />
           <Route exact path="/NetworkStatistics" element={<NetworkStatistics />} />
           <Route exact path="/NetworkVulnerabilities" element={<NetworkVulnerabilities />} />
+          <Route exact path="/ListNodeComponent" element={<ListNodeComponent/>} />
+          <Route exact path="/DashboardDisplay" element={<DashboardDisplay/>} />
+          <Route exact path="Dashboard" element={<Dashboard/>} />
+          <Route exact path="TakMap" element={<TakMap/>} />
 
           <Route path="*" element={<WorngPath />} />
         </Routes>

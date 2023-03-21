@@ -2,6 +2,9 @@ import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Select from "react-select";
+import ListNodeComponent from "./ListNodeComponent";
+import ListUserComponent from "./ListNodeComponent";
+import TakMap from "./TakMap";
 
 export default function CyberDashBoard() {
   const navigate = useNavigate();
@@ -47,13 +50,15 @@ export default function CyberDashBoard() {
   </header>
 
 
-  <form>
     <div class="content-container">
-        <div class="main">
+      
+      
 
-        </div>
     </div>
-</form>
+
+  <TakMap>
+
+  </TakMap>
 
     <div id="footer">
       <button id="quit">Quit</button> 
