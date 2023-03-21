@@ -52,14 +52,12 @@ export default function CyberDashBoard() {
 
     <div class="content-container">
       
-      <ListNodeComponent>
-
-      </ListNodeComponent>
+      
 
     </div>
 
   <TakMap>
-    
+
   </TakMap>
 
     <div id="footer">
