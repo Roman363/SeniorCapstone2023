@@ -23,6 +23,7 @@ import NetworkVulnerabilities from "./components/pages/dashBoard/cyberDash/Netwo
 import ListNodeComponent from "./components/pages/dashBoard/cyberDash/ListNodeComponent";
 import DashboardDisplay from "./components/pages/dashBoard/cyberDash/DashboardDisplay";
 import Dashboard from "./components/pages/dashBoard/cyberDash/Dashboard";
+import TakMap from "./components/pages/dashBoard/cyberDash/TakMap";
 
 function App() {
   return (
@@ -52,6 +53,7 @@ function App() {
           <Route exact path="/ListNodeComponent" element={<ListNodeComponent/>} />
           <Route exact path="/DashboardDisplay" element={<DashboardDisplay/>} />
           <Route exact path="Dashboard" element={<Dashboard/>} />
+          <Route exact path="TakMap" element={<TakMap/>} />
 
           <Route path="*" element={<WorngPath />} />
         </Routes>
