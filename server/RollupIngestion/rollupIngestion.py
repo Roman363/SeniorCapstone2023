@@ -33,7 +33,7 @@ def sendToDatabase(rollupFileList: list[tarfile.TarInfo]) -> None:
         for requestNode in requestNodeList:
             DatabaseConnection.request(requestNode)
 
-def main():
+def startRollupReader():
     
     #Connects to the database
     DatabaseConnection.setUp()
@@ -59,5 +59,6 @@ def main():
     #closes up the rollup tarfile object
     rollupTarFile.close()
 
-main()
+    #Deletes local rollup files
+    RollupExtractor.deleteExtractedRollup(unfiltered= True, filtered= True)
 

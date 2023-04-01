@@ -28,12 +28,11 @@ class CanvasMapsReader:
         for edge in edgeMap:
             ipList = edge.split("~")
             if ipList[1] in ipDict:
-                ipDict[ipList[1]][ipList[1]].append(ipList[2])
+                ipDict[ipList[1]]["connections"].append(ipList[2])
             else:
-                ipDict[ipList[1]] = {ipList[1]:[ipList[2]]}
+                ipDict[ipList[1]] =  {"_ip":ipList[1] , "connections" : [ipList[2]]}
+                
         dataList = [ipDict[ip] for ip in ipDict]
-
-       
 
         return DatabaseRequestNode(dataList, "add", "canvasmaps/EdgeMap")
     

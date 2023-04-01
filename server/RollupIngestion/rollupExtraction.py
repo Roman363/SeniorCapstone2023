@@ -137,3 +137,7 @@ class RollupExtractor:
     @staticmethod
     def getZippedRollupDirectory():
         return RollupExtractor._zippedRollupDirectory
+    
+#RollupExtractor.setUp()
+#RollupExtractor.extractRollup(unfiltered=True, filtered=True)
+#RollupExtractor.deleteExtractedRollup(unfiltered=True, filtered=True)

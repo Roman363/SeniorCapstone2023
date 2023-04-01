@@ -109,6 +109,28 @@ def onedata(id):
         return jsonify({'status': 'Data id: ' + id + ' is updated!'})
 
 #Creates a Post and Get Response for the server
+@app.route('/Nmap', methods=['POST', 'GET'])
+def NmapData():
+    
+    # GET all data from database
+    if request.method == 'GET':
+        allData = db['nmap/IP'].find()
+        dataJson = []
+        for data in allData:
+            id = data['_id']
+            ip = data['_ip']
+            scanner = data['@scanner']
+            dataDict = {
+                'id': str(id),
+                'ip': ip,
+                'scanner': scanner
+                
+            }
+            dataJson.append(dataDict)
+        print(dataJson)
+        return jsonify(dataJson)
+
+#Creates a Post and Get Response for the server
 @app.route('/canvasipnodes', methods=['POST', 'GET'])
 def ipdata():
     
