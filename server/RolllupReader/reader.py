@@ -1,9 +1,11 @@
 import tarfile, sys, os
 from RolllupReader.canvasMapsReader import *
 from RolllupReader.nmapReader import *
+from RolllupReader.trafficReader import *
 
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 from FileReader.xmlReader import *
+from FileReader.pcapReader import *
 from Database.databaseConnector import DatabaseRequestNode
 
 
@@ -98,3 +100,14 @@ class Reader:
             return [DatabaseRequestNode(data, "add", tableName)]
 
 
+"""
+        elif fileType == "pcapng":
+            print("hello")
+            data = PcapReader.getData(filePath)
+            print("hi") 
+        """
+
+"""
+elif tableName == "traffic":
+    return TrafficReader.getRequestNodeList(data)
+    """

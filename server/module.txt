@@ -4,4 +4,6 @@ pip install flask_cors
 pip install pyyaml
 pip install xmltodict
 pip install certifi
-
+pip install takprotobuf
+pip install protobuf==3.20.3
+pip install scapy

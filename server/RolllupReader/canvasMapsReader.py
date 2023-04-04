@@ -11,7 +11,6 @@ class CanvasMapsReader:
         requestNodeList = []
         requestNodeList.append(CanvasMapsReader.getIpRequestNode(data))
         requestNodeList.append(CanvasMapsReader.getEdgeRequestNode(data))
-
         return requestNodeList
     
     @staticmethod
@@ -31,11 +30,7 @@ class CanvasMapsReader:
                 ipDict[ipList[1]]["connections"].append(ipList[2])
             else:
                 ipDict[ipList[1]] =  {"_ip":ipList[1] , "connections" : [ipList[2]]}
-                
+
         dataList = [ipDict[ip] for ip in ipDict]
 
         return DatabaseRequestNode(dataList, "add", "canvasmaps/EdgeMap")
-    
-    
-
-

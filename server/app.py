@@ -156,6 +156,35 @@ def ipdata():
             dataJson.append(dataDict)
         print(dataJson)
         return jsonify(dataJson)
+    
+#Creates a Post and Get Response for the server
+@app.route('/traffic', methods=['POST', 'GET'])
+def geoData():
+    
+    # GET all data from database
+    if request.method == 'GET':
+        allData = db['traffic'].find()
+        dataJson = []
+        coords = set()
+        for data in allData:
+            
+            uid = data['uid']
+            lat = data['lat']
+            lon = data['lon']
+            coord = (lat, lon)
+            if coord in coords:
+                continue
+            else:
+                coords.add(coord)
+            
+            dataDict = {
+                'uid': str(id),
+                'lat': lat,
+                'lon': lon
+            }
+            dataJson.append(dataDict)
+        print(dataJson)
+        return jsonify(dataJson)
 
 
 if __name__ == '__main__':
