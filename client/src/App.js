@@ -25,6 +25,7 @@ import DashboardDisplay from "./components/pages/dashBoard/cyberDash/DashboardDi
 import Dashboard from "./components/pages/dashBoard/cyberDash/Dashboard";
 import TakMap from "./components/pages/dashBoard/cyberDash/TakMap";
 import MapTestingComponent from "./components/pages/dashBoard/cyberDash/MapTestingComponent"
+import NetworkMapV2 from "./components/pages/NetworkMapV2"
 
 function App() {
   return (
@@ -56,6 +57,7 @@ function App() {
           <Route exact path="Dashboard" element={<Dashboard/>} />
           <Route exact path="TakMap" element={<TakMap/>} />
           <Route exact path="MapTestingComponent" element={<MapTestingComponent/>}/>
+          <Route exact path="NetworkMapV2" element={<NetworkMapV2/>}/>
           <Route path="*" element={<WorngPath />} />
           
         </Routes>
