@@ -19,6 +19,7 @@ export default function CyberDashBoard() {
     navigate("/Cyberdashboard");
   }
 
+
   function handleAssessmentDashBoard(){
     navigate("/AssessmentDash");
   }
@@ -52,7 +53,6 @@ export default function CyberDashBoard() {
 
     <div class="content-container">
       
-      
 
     </div>
 
@@ -63,6 +63,10 @@ export default function CyberDashBoard() {
     <div id="footer">
       <button id="quit">Quit</button> 
       <button id="settings">Settings</button>
+      <button id="networkMap"> Network Map </button>
+      <button id="networkStat"> Network Stat </button>
+      <button id="networkVul"> Network Vul. </button>
+      <button id="TAKmap"> TAK Map </button>
       <button id="addNode" onClick={handleAddNode}>Add Node</button>
       <button id="deleteNode">Delete Node</button>
       {/* <!-- onclick={handleQuit} --> */}
