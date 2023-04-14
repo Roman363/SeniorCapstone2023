@@ -167,6 +167,92 @@ def ipdata():
         print(dataJson)
         return jsonify(dataJson)
 
+#Creates a Post and Get Response for the server
+@app.route('/traffic', methods=['POST', 'GET'])
+def geoData():
+    
+    # GET all data from database
+    if request.method == 'GET':
+        allData = db['traffic'].find()
+        dataJson = []
+        coords = set()
+        for data in allData:
+            
+            id = data['_id']
+            lat = data['lat']
+            lon = data['lon']
+            coord = (lat, lon)
+            if coord in coords:
+                continue
+            else:
+                coords.add(coord)
+            
+            dataDict = {
+                'id': str(id),
+                'lat': lat,
+                'lon': lon
+            }
+            dataJson.append(dataDict)
+        print(dataJson)
+        return jsonify(dataJson)
+
+
+#Creates a Post and Get Response for the server
+@app.route('/edges', methods=['POST', 'GET'])
+def edgedata():
+    
+    # GET all data from database
+    if request.method == 'GET':
+        allData = db['canvasmaps/EdgeMap'].find()
+        dataJson = []
+        x = 0
+        for data in allData:
+            id = data['_id']
+            ip = data['_ip']
+            connections = data['connections']
+            for dest in connections:
+
+                dataDict = {
+                    'id': str(x),
+                    'source': ip,
+                    'target': dest,
+                    'animated': True,
+                    'style': {'stroke': 'red'}
+                }
+                dataJson.append(dataDict)
+                x+=1
+
+        print(dataJson)
+        return jsonify(dataJson)
+
+#Creates a Post and Get Response for the server
+@app.route('/networkNodes', methods=['POST', 'GET'])
+def networkNodes():
+    
+    # GET all data from database
+    if request.method == 'GET':
+        allData = db['canvasmaps/IPNodes'].find()
+        dataJson = []
+        x = 0
+        y = 0
+        for data in allData:
+            id = data['@ip']
+            data = data['@ip']
+            
+            dataDict = {
+                'id': id,
+                'position': {'x':x, 'y':y},
+                'data': {'label': data},
+                'draggable': True 
+
+            }
+            dataJson.append(dataDict)
+            y+=100
+            x+=100
+        print(dataJson)
+        return jsonify(dataJson)
+
+
 
 
 if __name__ == '__main__':
