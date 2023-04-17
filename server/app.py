@@ -3,6 +3,8 @@ from pymongo import MongoClient
 from bson.objectid import ObjectId
 from flask_cors import CORS
 import yaml
+import networkx as nx
+
 
 #Starts Flask Application
 app = Flask(__name__)
@@ -231,24 +233,45 @@ def networkNodes():
     
     # GET all data from database
     if request.method == 'GET':
-        allData = db['canvasmaps/IPNodes'].find()
+        connectionData = db['canvasmaps/EdgeMap'].find()
+        graph = nx.Graph()
         dataJson = []
-        x = 0
-        y = 0
-        for data in allData:
-            id = data['@ip']
-            data = data['@ip']
+        print(connectionData)
+        
+        s = set()
+        for data in connectionData:
+            connections = data['connections']
+            print("what up ")
+            s.add(data['_ip'])
+            graph.add_node(data['_ip'])
+
+            for dest in connections:
+                print(dest)
+                if dest not in s:
+                    s.add(dest)
+                    print(dest)
+                    graph.add_node(dest)
+
+    
+                graph.add_edge(data['_ip'], dest)
+
+
+
+        pos = nx.spring_layout(graph)
+        print(pos)   
+            
+
+
+        for id in pos:
             
             dataDict = {
                 'id': id,
-                'position': {'x':x, 'y':y},
-                'data': {'label': data},
+                'position': {'x':pos[id][0]*900,'y':pos[id][1]*600},
+                'data': {'label': id},
                 'draggable': True 
 
             }
             dataJson.append(dataDict)
-            y+=100
-            x+=100
         print(dataJson)
         return jsonify(dataJson)
 
