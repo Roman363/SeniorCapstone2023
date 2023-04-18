@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import Select from "react-select";
 import ListNodeComponent from "./ListNodeComponent";
 import ListUserComponent from "./ListNodeComponent";
-import TakMap from "./TakMap";
+import NetworkVulnerabilities from "./NetworkVulnerabilities";
 
 export default function CyberDashBoard() {
   const navigate = useNavigate();
@@ -16,9 +16,13 @@ export default function CyberDashBoard() {
   }
   function handleNetworkStatistics(e) {
     e.preventDefault();
-    navigate("/CyberdashNetworkStat");
+    navigate("/NetworkStatistics");
   }
 
+  function handleNetworkVulnerabilities(e) {
+    e.preventDefault();
+    navigate("/NetworkVulnerabilities");
+  }
 
   function handleTAKMap(e) {
     e.preventDefault();
@@ -62,17 +66,17 @@ export default function CyberDashBoard() {
 
     </div>
 
-  <TakMap>
+  <NetworkVulnerabilities>
 
-  </TakMap>
+  </NetworkVulnerabilities>
 
     <div id="footer">
       <button id="quit">Quit</button> 
       <button id="settings">Settings</button>
       <button id="networkMap" onClick={handleCyberdashNetworkMap}> Network Map </button>
-      <button id="networkStatistics" onClick={handleNetworkStatistics}> Network Stat </button>
+      <button id="pressedNetworkStat"> Network Stat </button>
       <button id="networkVulnerabilities"> Network Vul. </button>
-      <button id="pressedTAKmap"> TAK Map </button>
+      <button id="TAKmap" onClick={handleTAKMap}> TAK Map </button>
       <button id="addNode" onClick={handleAddNode}>Add Node</button>
       <button id="deleteNode">Delete Node</button>
       {/* <!-- onclick={handleQuit} --> */}
