@@ -24,6 +24,10 @@ export default function AssessmentDash() {
     navigate("/CustomizeNode");
   }
 
+  function handleEnvironmentalInfo(){
+    navigate("/EnvironmentalInfo");
+  }
+
   // menubar selection
 
   const options = [
@@ -51,7 +55,7 @@ export default function AssessmentDash() {
       <button id="quit">Quit</button> 
       <button id="settings">Settings</button>
       <button id="pressedNetworkMap"> Vulnerability Info. </button>
-      <button id="networkVulnerabilities"> Environmental Info. </button>
+      <button id="environmental"onClick={handleEnvironmentalInfo}> Environmental Info. </button>
       <button id="addNode" onClick={handleAddNode}>Add Node</button>
       <button id="deleteNode">Delete Node</button>
       {/* <!-- onclick={handleQuit} --> */}

@@ -21,7 +21,7 @@ export default function CyberDashBoard() {
 
   function handleNetworkVulnerabilities(e) {
     e.preventDefault();
-    navigate("/NetworkVulnerabilities");
+    navigate("/CyberdashNetworkVul");
   }
 
   function handleTAKMap(e) {
@@ -36,6 +36,8 @@ export default function CyberDashBoard() {
   function handleAddNode(){
     navigate("/CustomizeNode");
   }
+
+
 
   // menubar selection
 
@@ -75,7 +77,7 @@ export default function CyberDashBoard() {
       <button id="settings">Settings</button>
       <button id="networkMap" onClick={handleCyberdashNetworkMap}> Network Map </button>
       <button id="pressedNetworkStat"> Network Stat </button>
-      <button id="networkVulnerabilities"> Network Vul. </button>
+      <button id="networkVulnerabilities" onClick={handleNetworkVulnerabilities}> Network Vul. </button>
       <button id="TAKmap" onClick={handleTAKMap}> TAK Map </button>
       <button id="addNode" onClick={handleAddNode}>Add Node</button>
       <button id="deleteNode">Delete Node</button>

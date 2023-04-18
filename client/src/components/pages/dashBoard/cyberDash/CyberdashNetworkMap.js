@@ -33,6 +33,10 @@ export default function CyberDashBoard() {
     navigate("/CustomizeNode");
   }
 
+  function handleNetworkVulnerabilities(e) {
+    e.preventDefault();
+    navigate("/CyberdashNetworkVul");
+  }
   // menubar selection
 
   const options = [
@@ -77,7 +81,7 @@ export default function CyberDashBoard() {
       <button id="settings">Settings</button>
       <button id="pressedNetworkMap"> Network Map </button>
       <button id="networkStatistics" onClick={handleNetworkStatistics}> Network Stat </button>
-      <button id="networkVulnerabilities"> Network Vul. </button>
+      <button id="networkVulnerabilities" onClick={handleNetworkVulnerabilities}> Network Vul. </button>
       <button id="TAKmap" onClick={handleTAKMap}> TAK Map </button>
       <button id="addNode" onClick={handleAddNode}>Add Node</button>
       <button id="deleteNode">Delete Node</button>

@@ -28,6 +28,8 @@ import MapTestingComponent from "./components/pages/dashBoard/cyberDash/MapTesti
 import NetworkMapV3 from "./components/pages/dashBoard/cyberDash/NetworkMapV3"
 import CyberdashNetworkMap from "./components/pages/dashBoard/cyberDash/CyberdashNetworkMap"
 import CyberdashNetworkStat from "./components/pages/dashBoard/cyberDash/CyberdashNetworkStat"
+import CyberdashNetworkVul from "./components/pages/dashBoard/cyberDash/CyberdashNetworkVul";
+import EnvironmentalInfo from "./components/pages/dashBoard/assessmentDash/EnvironmentalInfo"
 
 function App() {
   return (
@@ -62,6 +64,8 @@ function App() {
           <Route exact path="NetworkMapV3" element={<NetworkMapV3/>}/>
           <Route exact path="CyberdashNetworkMap" element={<CyberdashNetworkMap/>}/>
           <Route exact path="CyberdashNetworkStat" element={<CyberdashNetworkStat/>}/>
+          <Route exact path="CyberdashNetworkVul" element={<CyberdashNetworkVul/>}/>
+          <Route exact path="EnvironmentalInfo" element={<EnvironmentalInfo/>}/>
           <Route path="*" element={<WorngPath />} />
           
         </Routes>
