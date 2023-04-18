@@ -9,12 +9,18 @@ import TakMap from "./TakMap";
 export default function CyberDashBoard() {
   const navigate = useNavigate();
 
-  function handleMainDashBoard(e) {
+  function handleCyberdashNetworkMap(e) {
     e.preventDefault();
-    navigate("/MainDash");
+    navigate("/CyberdashNetworkMap");
   
   }
-  function handleCyberdashBoard(e) {
+  function handleNetworkStatistics(e) {
+    e.preventDefault();
+    navigate("/CyberdashNetworkStat");
+  }
+
+
+  function handleTAKMap(e) {
     e.preventDefault();
     navigate("/Cyberdashboard");
   }
@@ -26,6 +32,11 @@ export default function CyberDashBoard() {
 
   function handleAddNode(){
     navigate("/CustomizeNode");
+  }
+
+  function handleNetworkVulnerabilities(e) {
+    e.preventDefault();
+    navigate("/CyberdashNetworkVul");
   }
 
   // menubar selection
@@ -46,7 +57,7 @@ export default function CyberDashBoard() {
     <body>
   <header id="mainNav">
       <h2 id="naive">Naive</h2>
-      <button id="cyberVA" onClick={handleCyberdashBoard}>Cyber VA</button> 
+      <button id="pressedTab">Cyber VA</button> 
       <button id="assessmentDash" onClick={handleAssessmentDashBoard}>Assessment Dashboard</button>
   </header>
 
@@ -63,10 +74,12 @@ export default function CyberDashBoard() {
     <div id="footer">
       <button id="quit">Quit</button> 
       <button id="settings">Settings</button>
-      <button id="networkMap"> Network Map </button>
-      <button id="networkStat"> Network Stat </button>
-      <button id="networkVul"> Network Vul. </button>
-      <button id="TAKmap"> TAK Map </button>
+
+      <button id="networkMap" onClick={handleCyberdashNetworkMap}> Network Map </button>
+      <button id="networkStatistics" onClick={handleNetworkStatistics}> Network Stat </button>
+      <button id="networkVulnerabilities" onClick={handleNetworkVulnerabilities}> Network Vul. </button>
+      <button id="pressedTAKmap"> TAK Map </button>
+
       <button id="addNode" onClick={handleAddNode}>Add Node</button>
       <button id="deleteNode">Delete Node</button>
       {/* <!-- onclick={handleQuit} --> */}

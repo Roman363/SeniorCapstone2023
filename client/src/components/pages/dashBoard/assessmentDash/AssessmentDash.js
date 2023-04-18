@@ -11,9 +11,9 @@ export default function AssessmentDash() {
     navigate("/MainDash");
   
   }
-  function handleCyberdashBoard(e) {
+  function handleCyberdashNetworkMap(e) {
     e.preventDefault();
-    navigate("/Cyberdashboard");
+    navigate("/CyberdashNetworkMap");
   }
 
   function handleAssessmentDashBoard(){
@@ -22,6 +22,10 @@ export default function AssessmentDash() {
 
   function handleAddNode(){
     navigate("/CustomizeNode");
+  }
+
+  function handleEnvironmentalInfo(){
+    navigate("/EnvironmentalInfo");
   }
 
   // menubar selection
@@ -42,23 +46,16 @@ export default function AssessmentDash() {
     <body>
   <header id="mainNav">
       <h2 id="naive">Naive</h2>
-      <button id="cyberVA" onClick={handleCyberdashBoard}>Cyber VA</button> 
-      <button id="assessmentDash" onClick={handleAssessmentDashBoard}>Assessment Dashboard</button>
+      <button id="cyberVA" onClick={handleCyberdashNetworkMap}>Cyber VA</button> 
+      <button id="pressedAssessment">Assessment Dashboard</button>
   </header>
 
-
-  <form>
-    <div class="content-container">
-        <div class="main">
-
-
-        </div>
-    </div>
-</form>
 
     <div id="footer">
       <button id="quit">Quit</button> 
       <button id="settings">Settings</button>
+      <button id="pressedNetworkMap"> Vulnerability Info. </button>
+      <button id="environmental"onClick={handleEnvironmentalInfo}> Environmental Info. </button>
       <button id="addNode" onClick={handleAddNode}>Add Node</button>
       <button id="deleteNode">Delete Node</button>
       {/* <!-- onclick={handleQuit} --> */}

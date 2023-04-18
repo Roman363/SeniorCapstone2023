@@ -3,6 +3,8 @@ from pymongo import MongoClient
 from bson.objectid import ObjectId
 from flask_cors import CORS
 import yaml
+import networkx as nx
+
 
 #Starts Flask Application
 app = Flask(__name__)
@@ -166,6 +168,113 @@ def ipdata():
             dataJson.append(dataDict)
         print(dataJson)
         return jsonify(dataJson)
+
+#Creates a Post and Get Response for the server
+@app.route('/traffic', methods=['POST', 'GET'])
+def geoData():
+    
+    # GET all data from database
+    if request.method == 'GET':
+        allData = db['traffic'].find()
+        dataJson = []
+        coords = set()
+        for data in allData:
+            
+            id = data['_id']
+            lat = data['lat']
+            lon = data['lon']
+            coord = (lat, lon)
+            if coord in coords:
+                continue
+            else:
+                coords.add(coord)
+            
+            dataDict = {
+                'id': str(id),
+                'lat': lat,
+                'lon': lon
+            }
+            dataJson.append(dataDict)
+        print(dataJson)
+        return jsonify(dataJson)
+
+
+#Creates a Post and Get Response for the server
+@app.route('/edges', methods=['POST', 'GET'])
+def edgedata():
+    
+    # GET all data from database
+    if request.method == 'GET':
+        allData = db['canvasmaps/EdgeMap'].find()
+        dataJson = []
+        x = 0
+        for data in allData:
+            id = data['_id']
+            ip = data['_ip']
+            connections = data['connections']
+            for dest in connections:
+
+                dataDict = {
+                    'id': str(x),
+                    'source': ip,
+                    'target': dest,
+                    'animated': True,
+                    'style': {'stroke': 'red'}
+                }
+                dataJson.append(dataDict)
+                x+=1
+
+        print(dataJson)
+        return jsonify(dataJson)
+
+#Creates a Post and Get Response for the server
+@app.route('/networkNodes', methods=['POST', 'GET'])
+def networkNodes():
+    
+    # GET all data from database
+    if request.method == 'GET':
+        connectionData = db['canvasmaps/EdgeMap'].find()
+        graph = nx.Graph()
+        dataJson = []
+        print(connectionData)
+        
+        s = set()
+        for data in connectionData:
+            connections = data['connections']
+            print("what up ")
+            s.add(data['_ip'])
+            graph.add_node(data['_ip'])
+
+            for dest in connections:
+                print(dest)
+                if dest not in s:
+                    s.add(dest)
+                    print(dest)
+                    graph.add_node(dest)
+
+    
+                graph.add_edge(data['_ip'], dest)
+
+
+
+        pos = nx.spring_layout(graph)
+        print(pos)   
+            
+
+
+        for id in pos:
+            
+            dataDict = {
+                'id': id,
+                'position': {'x':pos[id][0]*900,'y':pos[id][1]*600},
+                'data': {'label': id},
+                'draggable': True 
+
+            }
+            dataJson.append(dataDict)
+        print(dataJson)
+        return jsonify(dataJson)
+
 
 
 

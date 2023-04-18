@@ -27,18 +27,32 @@ function ModifyImage() {
   }
 
   return (
+<body>
+    <header id="mainNav">
+        <h2 id="modify">Modify Network Node Image</h2>
+        {/* <!-- <a href="" id="cyberVA">Cyber VA</a>
+        <a href="" id="assessmentDash">Assessment Dashboard</a> --> */}
+    </header>
+
+
     <form onSubmit={handleSave}>
-      <h3>Modify Network Node Image</h3>
-      <input
-        type="text"
-        name="fileInput"
-        placeholder="fileName"
-        onChange={handleSave}
-      />
-      <button type="submit">Save</button>
-      <br />
-      <button onClick={handleBack}>Back</button>
+      <div class="content-container">
+        <input
+          type="text"
+          name="fileInput"
+          placeholder="fileName"
+          onChange={handleSave}
+        ></input>
+        <button type="submit">Save</button>
+        <button onClick={handleBack}>Back</button>
+      </div>
     </form>
+
+    <div id="footer">
+        <button id="quit">Quit</button> 
+        {/* onclick={handleQuit} */}
+      </div>
+</body>
   );
 }
 

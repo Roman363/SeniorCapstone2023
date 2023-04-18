@@ -101,7 +101,7 @@ body {
   padding: 0;
 }
 
-#naive, #create, #browse, #delete, #open {
+#naive, #create, #browse, #delete, #open, #modify, #color {
   color: #B1B3B3;
   display: inline;
   -webkit-text-stroke-width: 1px;
@@ -175,6 +175,51 @@ body {
   
 }
 
+#pressedTab {
+  position: absolute;
+  padding: 10px 30px;
+  text-decoration: none;
+  background-color: #b8d6ff;
+  border-width: 5px;
+  border-color: #ffe0c0;
+  border-radius: 30px;
+  color: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 25px;
+  margin: 20px 0px;
+  left: 450px;
+}
+
+#pressedAssessment {
+  position: absolute;
+  padding: 10px 30px;
+  text-decoration: none;
+  background-color: #b8d6ff;
+  border-width: 5px;
+  border-color: #ffe0c0;
+  border-radius: 30px;
+  color: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 25px;
+  margin: 20px 0px;
+  right: 380px;
+}
+
+#assessment {
+  position: absolute;
+  padding: 10px 30px;
+  text-decoration: none;
+  background-color: #041E42;
+  border-width: 5px;
+  border-color: #FF8200;
+  border-radius: 30px;
+  color: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 25px;
+  margin: 20px 0px;
+  right: 380px;
+}
+
 #cyberVA {
   position: absolute;
   padding: 10px 30px;
@@ -189,6 +234,7 @@ body {
   margin: 20px 0px;
   left: 450px;
 }
+
 
 #assessmentDash { 
   position: absolute;
@@ -257,6 +303,167 @@ body {
   font-size: 30px;
   margin: 20px 0px;
   right: 180px;
+}
+
+#pressedNetworkMap {
+  position: absolute;
+  padding: 10px 30px;
+  text-decoration: none;
+  background-color: #b8d6ff;
+  border-width: 5px;
+  border-color: #ffe0c0;
+  border-radius: 30px;
+  color: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  margin: 20px 0px;
+  right: 1200px;
+}
+
+
+#pressedTAKmap {
+  position: absolute;
+  padding: 10px 30px;
+  text-decoration: none;
+  background-color: #b8d6ff;
+  border-width: 5px;
+  border-color: #ffe0c0;
+  border-radius: 30px;
+  color: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  margin: 20px 0px;
+  right: 710px;
+}
+
+#networkMap {
+  position: absolute;
+  padding: 10px 30px;
+  background-color: #041E42;
+  border-width: 5px;
+  border-color: #FF8200;
+  border-radius: 30px;
+  color: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  margin: 20px 0px;
+  right: 1200px;
+}
+
+#pressedNetworkStat {
+  position: absolute;
+  padding: 10px 30px;
+  text-decoration: none;
+  background-color: #b8d6ff;
+  border-width: 5px;
+  border-color: #ffe0c0;
+  border-radius: 30px;
+  color: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  margin: 20px 0px;
+  right: 1030px;
+}
+
+#pressedNetworkVul {
+  position: absolute;
+  padding: 10px 30px;
+  text-decoration: none;
+  background-color: #b8d6ff;
+  border-width: 5px;
+  border-color: #ffe0c0;
+  border-radius: 30px;
+  color: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  margin: 20px 0px;
+  right: 860px;
+}
+
+#environmental {
+  position: absolute;
+  padding: 10px 30px;
+  background-color: #041E42;
+  border-width: 5px;
+  border-color: #FF8200;
+  border-radius: 30px;
+  color: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  margin: 20px 0px;
+  right: 860px;
+}
+
+#pressedEnvironmental {
+  position: absolute;
+  padding: 10px 30px;
+  text-decoration: none;
+  background-color: #b8d6ff;
+  border-width: 5px;
+  border-color: #ffe0c0;
+  border-radius: 30px;
+  color: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  margin: 20px 0px;
+  right: 860px;
+}
+
+#pressedcyberVA {
+  position: absolute;
+  padding: 10px 30px;
+  text-decoration: none;
+  background-color: #b8d6ff;
+  border-width: 5px;
+  border-color: #ffe0c0;
+  border-radius: 30px;
+  color: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 25px;
+  margin: 20px 0px;
+  left: 450px;
+}
+
+#networkStatistics {
+  position: absolute;
+  padding: 10px 30px;
+  background-color: #041E42;
+  border-width: 5px;
+  border-color: #FF8200;
+  border-radius: 30px;
+  color: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  margin: 20px 0px;
+  right: 1030px;
+}
+
+#networkVulnerabilities {
+  position: absolute;
+  padding: 10px 30px;
+  background-color: #041E42;
+  border-width: 5px;
+  border-color: #FF8200;
+  border-radius: 30px;
+  color: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  margin: 20px 0px;
+  right: 860px;
+}
+
+#TAKmap {
+  position: absolute;
+  padding: 10px 30px;
+  background-color: #041E42;
+  border-width: 5px;
+  border-color: #FF8200;
+  border-radius: 30px;
+  color: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  margin: 20px 0px;
+  right: 710px;
 }
 
 #addNode, #modifyImage {

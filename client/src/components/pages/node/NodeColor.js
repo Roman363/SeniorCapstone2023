@@ -26,15 +26,31 @@ function NodeColor() {
  }
 
   return (
+<body>
+    <header id="mainNav">
+        <h2 id="color">Choose A Color</h2>
+        {/* <!-- <a href="" id="cyberVA">Cyber VA</a>
+        <a href="" id="assessmentDash">Assessment Dashboard</a> --> */}
+    </header>
+
+
     <form onSubmit={handleSubmit}>
-      <h3>Choose a Color</h3>
+      <div class="content-container">
+        
 
-      <Select options={options}
-      ></Select>
+        <Select options={options}
+        ></Select>
 
-      <button type="submit">Save</button>
-      <button onClick={handleBack} >Back</button>
+        <button type="submit">Save</button>
+        <button onClick={handleBack} >Back</button>
+      </div>
     </form>
+
+    <div id="footer">
+        <button id="quit">Quit</button> 
+        {/* onclick={handleQuit} */}
+      </div>
+</body>
   );
 }
 

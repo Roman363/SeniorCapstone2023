@@ -1,62 +1,52 @@
-import * as React from 'react';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
+import { useRef } from "react";
 
-// name, calories, fat, carbs, protein 
-function createData(systemIP, associations, op, activeService, protocol, sentPackets, trafficAmount) {
-  return { systemIP, associations, op, activeService, protocol, sentPackets, trafficAmount };
-}
+const App = () => {
+  const inputRef = useRef(null);
 
-const statistics = [
-  createData("157.143.80.158", "Open", "Windows", "Windows Bot Service", "VTP", "350", "Low"),
-  createData("157.143.80.158", "Open", "Windows", "Windows Bot Service", "VTP", "350", "Low"),
-  createData("157.143.80.158", "Open", "Windows", "Windows Bot Service", "VTP", "350", "Low"),
-  createData("157.143.80.158", "Open", "Windows", "Windows Bot Service", "VTP", "350", "Low"),
-  createData("157.143.80.158", "Open", "Windows", "Windows Bot Service", "VTP", "350", "Low"),
-  createData("157.143.80.158", "Open", "Windows", "Windows Bot Service", "VTP", "350", "Low"),
-  createData("157.143.80.158", "Open", "Windows", "Windows Bot Service", "VTP", "350", "Low"),
+  const handleClick = () => {
+    // 👇️ open file input box on click of another element
+    inputRef.current.click();
+  };
 
-];
+  const handleFileChange = (event) => {
+    const fileObj = event.target.files && event.target.files[0];
+    if (!fileObj) {
+      return;
+    }
 
-export default function BasicTable() {
+    console.log("fileObj is", fileObj);
+
+    // 👇️ reset file input
+    event.target.value = null;
+
+    // 👇️ is now empty
+    console.log(event.target.files);
+
+    // 👇️ can still access file object here
+    console.log(fileObj);
+    console.log(fileObj.name);
+  };
+  function Fileupload(){
+    return <input
+        style={{ display: "none" }}
+        ref={inputRef}
+        type="file"
+        onChange={handleFileChange}
+      />
+  }
   return (
-    <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 650 }} aria-label="simple table">
-        <TableHead>
-          <TableRow>
-            <TableCell>SystemIP</TableCell>
-            <TableCell align="right">Associations</TableCell>
-            <TableCell align="right">OP&nbsp;(g)</TableCell>
-            <TableCell align="right">Active Service&nbsp;(g)</TableCell>
-            <TableCell align="right">Protocol&nbsp;(g)</TableCell>
-            <TableCell align="right">Sent Packets&nbsp;(g)</TableCell>
-            <TableCell align="right">Traffic Amount&nbsp;(g)</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {statistics.map((row) => (
-            <TableRow
-              key={row.name}
-              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-            >
-              <TableCell component="th" scope="row">
-                {row.systemIP}
-              </TableCell>
-              <TableCell align="right">{row.associations}</TableCell>
-              <TableCell align="right">{row.op}</TableCell>
-              <TableCell align="right">{row.activeService}</TableCell>
-              <TableCell align="right">{row.protocol}</TableCell>
-              <TableCell align="right">{row.sentPackets}</TableCell>
-              <TableCell align="right">{row.trafficAmount}</TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
+    <div>
+      <Fileupload/>
+      {/* <input
+        style={{ display: "none" }}
+        ref={inputRef}
+        type="file"
+        onChange={handleFileChange}
+      /> */}
+
+      <button onClick={handleClick}>Open file upload box</button>
+    </div>
   );
-}
+};
+
+export default App;
