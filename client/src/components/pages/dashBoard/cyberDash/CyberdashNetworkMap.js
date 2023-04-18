@@ -2,18 +2,27 @@ import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Select from "react-select";
+import ListNodeComponent from "./ListNodeComponent";
+import ListUserComponent from "./ListNodeComponent";
+import NetworkMapV3 from "./NetworkMapV3";
 
-export default function AssessmentDash() {
+export default function CyberDashBoard() {
   const navigate = useNavigate();
 
-  function handleMainDashBoard(e) {
-    e.preventDefault();
-    navigate("/MainDash");
-  
-  }
   function handleCyberdashNetworkMap(e) {
     e.preventDefault();
     navigate("/CyberdashNetworkMap");
+  
+  }
+
+  function handleNetworkStatistics(e) {
+    e.preventDefault();
+    navigate("/CyberdashNetworkStat");
+  }
+
+  function handleTAKMap(e) {
+    e.preventDefault();
+    navigate("/Cyberdashboard");
   }
 
   function handleAssessmentDashBoard(){
@@ -38,20 +47,38 @@ export default function AssessmentDash() {
     console.log("e.value");
   }
 
+  function handleQuit(e)
+  {
+    e.preventDefault();
+    
+  }
+
   return (
     <body>
   <header id="mainNav">
       <h2 id="naive">Naive</h2>
-      <button id="cyberVA" onClick={handleCyberdashNetworkMap}>Cyber VA</button> 
-      <button id="pressedAssessment">Assessment Dashboard</button>
+      <button id="pressedTab">Cyber VA</button> 
+      <button id="assessmentDash" onClick={handleAssessmentDashBoard}>Assessment Dashboard</button>
   </header>
 
+
+    <div class="content-container">
+      
+      
+
+    </div>
+
+  <NetworkMapV3>
+
+  </NetworkMapV3>
 
     <div id="footer">
       <button id="quit">Quit</button> 
       <button id="settings">Settings</button>
-      <button id="pressedNetworkMap"> Vulnerability Info. </button>
-      <button id="networkVulnerabilities"> Environmental Info. </button>
+      <button id="pressedNetworkMap"> Network Map </button>
+      <button id="networkStatistics" onClick={handleNetworkStatistics}> Network Stat </button>
+      <button id="networkVulnerabilities"> Network Vul. </button>
+      <button id="TAKmap" onClick={handleTAKMap}> TAK Map </button>
       <button id="addNode" onClick={handleAddNode}>Add Node</button>
       <button id="deleteNode">Delete Node</button>
       {/* <!-- onclick={handleQuit} --> */}

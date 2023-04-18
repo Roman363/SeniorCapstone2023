@@ -20,7 +20,11 @@ export default function CreateProject() {
     console.log(fileName);
     if (fileName !== "") {
       alert("Rollup created Successfully!");
+<<<<<<< HEAD
       navigate("/Cyberdashboard");
+=======
+      navigate("/CyberdashNetworkMap");
+>>>>>>> 95c7316d6a984b8c076bc030eb090b0ef3e38a11
     } else {
       alert("Please enter project name");
     }
