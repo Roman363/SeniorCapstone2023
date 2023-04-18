@@ -35,7 +35,7 @@ class NetworkMap extends Component {
 
   render() {
       return (
-          
+
           <div>
               <h2 className="text-center">Node List</h2>
               
