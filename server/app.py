@@ -3,6 +3,8 @@ from bson.objectid import ObjectId
 from flask_cors import CORS
 from Database.databaseConnector import *
 import os
+import networkx as nx
+
 
 absolute_path = os.path.dirname(__file__)
 
@@ -29,12 +31,15 @@ def data():
     # POST a data to database
     if request.method == 'POST':
         body = request.json
-        print(request.json)
         firstName = body['firstName']
         lastName = body['lastName']
         emailId = body['emailId'] 
         # db.users.insert_one({
-        db['users'].insert_one(body)
+        db['users'].insert_one({
+            "firstName": firstName,
+            "lastName": lastName,
+            "emailId":emailId
+        })
         return jsonify({
             'status': 'Data is posted to MongoDB!',
             'firstName': firstName,
@@ -44,9 +49,10 @@ def data():
     
     # GET all data from database
     if request.method == 'GET':
-        allData = db['users'].find()
+        allData = db['user'].find()
         dataJson = []
         for data in allData:
+            #print(data)
             id = data['_id']
             firstName = data['firstName']
             lastName = data['lastName']
@@ -58,7 +64,8 @@ def data():
                 'emailId': emailId
             }
             dataJson.append(dataDict)
-        print(dataJson)
+        #print(dataJson)
+        print(jsonify(dataJson))
         return jsonify(dataJson)
 
         
@@ -157,13 +164,11 @@ def ipdata():
             dataJson.append(dataDict)
         print(dataJson)
         return jsonify(dataJson)
-    
+
 #Creates a Post and Get Response for the server
 @app.route('/traffic', methods=['POST', 'GET'])
 def geoData():
-    global a
-    print(a)
-    a = "b"
+    
     # GET all data from database
     if request.method == 'GET':
         allData = db['traffic'].find()
@@ -171,7 +176,7 @@ def geoData():
         coords = set()
         for data in allData:
             
-            uid = data['uid']
+            id = data['_id']
             lat = data['lat']
             lon = data['lon']
             coord = (lat, lon)
@@ -181,13 +186,91 @@ def geoData():
                 coords.add(coord)
             
             dataDict = {
-                'uid': str(id),
+                'id': str(id),
                 'lat': lat,
                 'lon': lon
             }
             dataJson.append(dataDict)
         print(dataJson)
         return jsonify(dataJson)
+
+
+#Creates a Post and Get Response for the server
+@app.route('/edges', methods=['POST', 'GET'])
+def edgedata():
+    
+    # GET all data from database
+    if request.method == 'GET':
+        allData = db['canvasmaps/EdgeMap'].find()
+        dataJson = []
+        x = 0
+        for data in allData:
+            id = data['_id']
+            ip = data['_ip']
+            connections = data['connections']
+            for dest in connections:
+
+                dataDict = {
+                    'id': str(x),
+                    'source': ip,
+                    'target': dest,
+                    'animated': True,
+                    'style': {'stroke': 'red'}
+                }
+                dataJson.append(dataDict)
+                x+=1
+
+        print(dataJson)
+        return jsonify(dataJson)
+
+#Creates a Post and Get Response for the server
+@app.route('/networkNodes', methods=['POST', 'GET'])
+def networkNodes():
+    
+    # GET all data from database
+    if request.method == 'GET':
+        connectionData = db['canvasmaps/EdgeMap'].find()
+        graph = nx.Graph()
+        dataJson = []
+        print(connectionData)
+        
+        s = set()
+        for data in connectionData:
+            connections = data['connections']
+            print("what up ")
+            s.add(data['_ip'])
+            graph.add_node(data['_ip'])
+
+            for dest in connections:
+                print(dest)
+                if dest not in s:
+                    s.add(dest)
+                    print(dest)
+                    graph.add_node(dest)
+
+    
+                graph.add_edge(data['_ip'], dest)
+
+
+
+        pos = nx.spring_layout(graph)
+        print(pos)   
+            
+
+
+        for id in pos:
+            
+            dataDict = {
+                'id': id,
+                'position': {'x':pos[id][0]*900,'y':pos[id][1]*600},
+                'data': {'label': id},
+                'draggable': True 
+
+            }
+            dataJson.append(dataDict)
+        print(dataJson)
+        return jsonify(dataJson)
+
 
 @app.route('/changeTable/<string:id>', methods=['POST'])
 def changeTable(id):
