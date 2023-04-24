@@ -57,7 +57,7 @@ class PcapReader:
 
                 data[str(count)] = packetData
                 count += 1
-                
+
         return [data] if data != {} else []
 
 

@@ -28,6 +28,7 @@ class DatabaseConnection:
     _requestLog = []
     _client = None
     _db = None
+    _name = None
 
     @staticmethod
     def setUp():
@@ -54,6 +55,8 @@ class DatabaseConnection:
 
         #Creates a list to store all requests
         DatabaseConnection._requestLog = []
+
+        DatabaseConnection._name = config['cluster']
 
 
     @staticmethod

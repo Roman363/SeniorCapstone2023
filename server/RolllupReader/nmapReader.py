@@ -22,4 +22,5 @@ class NmapReader:
         else:
            dataMap["_ip"] = data[0]["nmaprun"]["host"]["address"]["@addr"]
         
-        return [DatabaseRequestNode([dataMap], "add", "nmap/IP")]
+        return [DatabaseRequestNode([dataMap], "add", "nmap/IP"), DatabaseRequestNode([dataMap], "add", "nmap/PivotIP")]
+    

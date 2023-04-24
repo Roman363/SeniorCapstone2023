@@ -10,4 +10,5 @@ class TrafficReader:
         for d in data[0]:
             dataList.append(data[0][d])
             
-        return [DatabaseRequestNode(dataList, "add", "traffic")]
+        return [DatabaseRequestNode(dataList, "add", "traffic"), DatabaseRequestNode(dataList, "add", "pivotTraffic")]
+    

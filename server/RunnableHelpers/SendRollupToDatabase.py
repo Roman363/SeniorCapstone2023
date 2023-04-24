@@ -8,11 +8,16 @@ from Database.databaseConnector import *
 from RolllupReader.reader import *
 from RollupIngestion.rollupExtraction import *
 
+
 #Sends entire rollup
 RollupIngestion.rollupIngestion.startRollupReader()
 
 #Connects to the database
 DatabaseConnection.setUp()
+client = DatabaseConnection._client
+db = client["Projects"]
+db["Names"].insert_one({"project": DatabaseConnection._name})
+
 
 RollupExtractor.setUp()
 rollupParentPath = RollupExtractor.getRollupParentDirectory()

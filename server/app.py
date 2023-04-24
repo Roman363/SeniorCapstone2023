@@ -12,8 +12,9 @@ app = Flask(__name__)
 DatabaseConnection.setUp()
 
 client = DatabaseConnection._client
+global db 
 db = DatabaseConnection._db
-
+a = "hi"
 CORS(app)
 
 #Show the HTML Homepage for the server
@@ -160,7 +161,9 @@ def ipdata():
 #Creates a Post and Get Response for the server
 @app.route('/traffic', methods=['POST', 'GET'])
 def geoData():
-    
+    global a
+    print(a)
+    a = "b"
     # GET all data from database
     if request.method == 'GET':
         allData = db['traffic'].find()
@@ -184,6 +187,35 @@ def geoData():
             }
             dataJson.append(dataDict)
         print(dataJson)
+        return jsonify(dataJson)
+
+@app.route('/changeTable/<string:id>', methods=['POST'])
+def changeTable(id):
+    global db
+    # GET a specific data by id
+    if request.method == 'POST':
+        DatabaseConnection._db = DatabaseConnection._client[id]
+        db = DatabaseConnection._db
+        DatabaseConnection._name = id
+
+        return jsonify({"message": "Success"})
+
+#Creates a Post and Get Response for the server
+@app.route('/getTable', methods=['GET'])
+def getTable():
+    # GET all data from database
+    print(DatabaseConnection._name)
+    if request.method == 'GET':
+        allData = client["Projects"]["Names"].find()
+        dataJson = []
+        for data in allData:
+            id = data['_id']
+            name = data['project']
+            dataDict = {
+                'id': str(id),
+                'name': name     
+            }
+            dataJson.append(dataDict)
         return jsonify(dataJson)
 
 
