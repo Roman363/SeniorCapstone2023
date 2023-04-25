@@ -4,6 +4,10 @@ from flask_cors import CORS
 from Database.databaseConnector import *
 import os
 import networkx as nx
+import shutil
+import RollupIngestion.rollupIngestion
+from RolllupReader.reader import *
+from RollupIngestion.rollupExtraction import *
 
 
 absolute_path = os.path.dirname(__file__)
@@ -280,6 +284,76 @@ def changeTable(id):
         DatabaseConnection._db = DatabaseConnection._client[id]
         db = DatabaseConnection._db
         DatabaseConnection._name = id
+
+        return jsonify({"message": "Success"})
+    
+@app.route('/deleteTable/<string:id>', methods=['POST'])
+def deleteTable(id):
+    global db
+    # GET a specific data by id
+    if request.method == 'POST':
+        client.drop_database(id)
+        client["Projects"]["Names"].delete_one({ "project": id })
+
+        return jsonify({"message": "Success"})
+
+@app.route('/createTable', methods=['POST'])
+def createTable():
+    global db
+    # GET a specific data by id
+    if request.method == 'POST':
+        text = request.form.get("text")
+        file = request.files.get("file")
+        print(file.filename)
+        print(file.content_type)
+
+        print(text)
+        print(file)
+        parent = os.path.dirname(__file__)
+        rollupData = os.path.join(parent, "RollupData")
+        destination_file = os.path.join(rollupData, file.filename)
+
+        file.save(destination_file)
+
+        yamlData = os.path.join(parent, "Database")
+        yaml_file = os.path.join(yamlData, "database.yaml")
+
+        
+
+                # Replace "/path/to/yaml/file.yaml" with the actual path to your YAML file
+        with open(yaml_file, "r") as f:
+            data = yaml.safe_load(f)
+
+        # Modify the data however you need to
+        data["cluster"] = text
+
+        # Save the changes back to the YAML file
+        with open(yaml_file, "w") as f:
+            yaml.safe_dump(data, f)
+
+        #Sends entire rollup
+        RollupIngestion.rollupIngestion.startRollupReader()
+
+        DatabaseConnection._db = DatabaseConnection._client[text]
+        db = DatabaseConnection._db
+        DatabaseConnection._name = text
+
+        
+        client["Projects"]["Names"].insert_one({"project": DatabaseConnection._name})
+        
+        RollupExtractor.setUp()
+        rollupParentPath = RollupExtractor.getRollupParentDirectory()
+
+        path = os.path.join(rollupParentPath, "TakMap")
+        path = os.path.join(path, "TAK_TrafficS.pcapng")
+
+        data = PcapReader.getData(path)
+        requestNodeList = TrafficReader.getRequestNodeList(data)
+        #Sends the node to be added to the database    
+        #Sends the node to be added to the database
+        for requestNode in requestNodeList:
+            DatabaseConnection.request(requestNode)
+
 
         return jsonify({"message": "Success"})
 

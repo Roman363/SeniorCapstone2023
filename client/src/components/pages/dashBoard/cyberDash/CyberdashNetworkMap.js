@@ -68,25 +68,23 @@ export default function CyberDashBoard() {
 
     <div class="content-container">
       
-      
+      <NetworkMapV3/>
 
     </div>
+ 
 
-  <NetworkMapV3>
 
-  </NetworkMapV3>
-
-    <div id="footer">
-      <button id="quit">Quit</button> 
-      <button id="settings">Settings</button>
-      <button id="pressedNetworkMap"> Network Map </button>
-      <button id="networkStatistics" onClick={handleNetworkStatistics}> Network Stat </button>
-      <button id="networkVulnerabilities" onClick={handleNetworkVulnerabilities}> Network Vul. </button>
-      <button id="TAKmap" onClick={handleTAKMap}> TAK Map </button>
-      <button id="addNode" onClick={handleAddNode}>Add Node</button>
-      <button id="deleteNode">Delete Node</button>
-      {/* <!-- onclick={handleQuit} --> */}
-    </div>
+  <div id="footer">
+    <button id="quit">Quit</button> 
+    <button id="settings">Settings</button>
+    <button id="pressedNetworkMap"> Network Map </button>
+    <button id="networkStatistics" onClick={handleNetworkStatistics}> Network Stat </button>
+    <button id="networkVulnerabilities" onClick={handleNetworkVulnerabilities}> Network Vul. </button>
+    <button id="TAKmap" onClick={handleTAKMap}> TAK Map </button>
+    <button id="addNode" onClick={handleAddNode}>Add Node</button>
+    <button id="deleteNode">Delete Node</button>
+    {/* <!-- onclick={handleQuit} --> */}
+  </div>
 </body>
   );
 }

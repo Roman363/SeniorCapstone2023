@@ -32,6 +32,7 @@ class RollupExtractor:
 
         #filters the name that ends in "tar.gz"
         zippedRollupName = [file for file in fileList if file.endswith("tar.gz")].pop()
+        print(zippedRollupName)
 
         #Gets path to the zipped rollup
         RollupExtractor._zippedRollupDirectory = os.path.join(RollupExtractor._rollupParentDirectory, zippedRollupName)

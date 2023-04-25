@@ -14,6 +14,10 @@ function Home() {
     navigate("/DeleteProject");
   }
 
+  function handleBrowse() {
+    navigate("/BrowseProject");
+  }
+
   return (
     <body>
     <header id="mainNav">
@@ -35,7 +39,7 @@ function Home() {
                   placeholder="Ex: J.D"
                 ></input>
                 <button onClick={handleCreate}>Create Project</button>
-                <button onClick={handleOpen}>Open Project</button>
+                <button onClick={handleBrowse}>Open Project</button>
                 <button onClick={handleDelete}>Delete Project</button>
               </div>
               <div></div>

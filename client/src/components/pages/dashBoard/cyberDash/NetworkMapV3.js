@@ -49,7 +49,7 @@ class NetworkMapV3 extends Component {
 
   render() {
     return (
-      <div style={{ width: "100vw", height: "100vh" }}>
+      <div class="networkMap" style={{ width: "100vw", height: "100vh" }}>
         <ReactFlow
           nodesDraggable={true}
           nodesConnectable={true}
