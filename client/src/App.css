@@ -1,4 +1,4 @@
-.App-logo {
+/*.App-logo {
   height: 40vmin;
   pointer-events: none;
 }
@@ -10,11 +10,11 @@
 }
 
 .App {
-  background-color: #243a67;
+  background-color: #041E42;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: left;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
@@ -37,10 +37,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  vertical-align: top;
+  vertical-align: left;
   font-size: calc(30px + 4vmin);
   color: white;
-  background-color: rgb(85, 146, 200);
+  background-color: rgb(255, 255, 255);
   border: 3px solid rgb(7, 27, 45);
   min-height: 800px;
   width: 75%;
@@ -76,14 +76,6 @@
   width: 75%;
 }
 
-/* .second-row {
-  position: absolute;
-  top: 100px;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgb(132, 201, 231);
-}   */
 
 .second-row iframe {
   display: block;
@@ -91,5 +83,462 @@
   height: 500px;
   border: none;
 };
+
+
+
+ .second-row {
+  position: absolute;
+  top: 100px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgb(132, 201, 231);
+} */
+
+body {
+  background-color: #B1B3B3;
+  margin: 0;
+  padding: 0;
+}
+
+#naive, #create, #browse, #delete, #open, #modify, #color {
+  color: #B1B3B3;
+  display: inline;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #FF8200;
+  font-size: 60px;
+  font-family: Arial, Helvetica, sans-serif;
+  position: relative;
+  left: 45px;
+  top: 15px;
+  padding-right: 100px;
+}
+
+.content-container {
+  position: absolute;
+  display: block;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   
+}
+
+.table-wrapper
+{
+  max-height: 600px;
+  overflow-y: scroll;
+}
+
+.content-container label{
+  display: block;
+  color:#041E42;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 40px;
+  position: relative;
+  left: 20px;
+}
+
+.content-container input {
+  display: block;
+  border-radius: 20px;
+  border-width: 4px;
+  width: 1000px;
+  height: 50px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 30px;
+  padding-left: 15px;
+}
+
+.content-container button{
+  display: block;
+  padding: 10px;
+  background-color: #041E42;
+  border-width: 5px;
+  border-color: #FF8200;
+  border-radius: 30px;
+  color: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 30px;
+  margin: 20px 0px;
+  position: relative;
+  left: 50%;
+  top: 30px;
+  transform: translate(-50%, -50%);
+
+}
+
+#mainNav {
+  display: block;
+  z-index: 10000;
+  position: sticky;
+  top: 0px;
+  width: 100%;
+  height: 100px;
+  background-color: #041E42;
+  border-bottom-style: solid;
+  border-width: 10px;
+  border-color: #FF8200;
   
+}
+
+#pressedTab {
+  position: absolute;
+  padding: 10px 30px;
+  text-decoration: none;
+  background-color: #b8d6ff;
+  border-width: 5px;
+  border-color: #ffe0c0;
+  border-radius: 30px;
+  color: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 25px;
+  margin: 20px 0px;
+  left: 450px;
+}
+
+#pressedAssessment {
+  position: absolute;
+  padding: 10px 30px;
+  text-decoration: none;
+  background-color: #b8d6ff;
+  border-width: 5px;
+  border-color: #ffe0c0;
+  border-radius: 30px;
+  color: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 25px;
+  margin: 20px 0px;
+  right: 380px;
+}
+
+#assessment {
+  position: absolute;
+  padding: 10px 30px;
+  text-decoration: none;
+  background-color: #041E42;
+  border-width: 5px;
+  border-color: #FF8200;
+  border-radius: 30px;
+  color: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 25px;
+  margin: 20px 0px;
+  right: 380px;
+}
+
+#cyberVA {
+  position: absolute;
+  padding: 10px 30px;
+  text-decoration: none;
+  background-color: #041E42;
+  border-width: 5px;
+  border-color: #FF8200;
+  border-radius: 30px;
+  color: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 25px;
+  margin: 20px 0px;
+  left: 450px;
+}
+
+
+#assessmentDash { 
+  position: absolute;
+  padding: 10px 30px;
+  text-decoration: none;
+  background-color: #041E42;
+  border-width: 5px;
+  border-color: #FF8200;
+  border-radius: 30px;
+  color: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 25px;
+  margin: 20px 0px;
+  right: 380px;
+}
+
+
+#footer {
+  display: block;
+  z-index: 0;
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  height: 100px;
+  background-color: #041E42;
+}
+
+/* #footer button {
+  position: absolute;
+  padding: 10px 30px;
+  background-color: #041E42;
+  border-width: 5px;
+  border-color: #FF8200;
+  border-radius: 30px;
+  color: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 30px;
+  margin: 20px 0px;
+  right: 30px;
+
+} */
+
+#quit, #back {
+  position: absolute;
+  padding: 10px 30px;
+  background-color: #041E42;
+  border-width: 5px;
+  border-color: #FF8200;
+  border-radius: 30px;
+  color: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 30px;
+  margin: 20px 0px;
+  right: 30px;
+}
+
+#settings, #nodeColor {
+  position: absolute;
+  padding: 10px 30px;
+  background-color: #041E42;
+  border-width: 5px;
+  border-color: #FF8200;
+  border-radius: 30px;
+  color: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 30px;
+  margin: 20px 0px;
+  right: 180px;
+}
+
+#pressedNetworkMap {
+  position: absolute;
+  padding: 10px 30px;
+  text-decoration: none;
+  background-color: #b8d6ff;
+  border-width: 5px;
+  border-color: #ffe0c0;
+  border-radius: 30px;
+  color: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  margin: 20px 0px;
+  right: 1200px;
+}
+
+
+#pressedTAKmap {
+  position: absolute;
+  padding: 10px 30px;
+  text-decoration: none;
+  background-color: #b8d6ff;
+  border-width: 5px;
+  border-color: #ffe0c0;
+  border-radius: 30px;
+  color: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  margin: 20px 0px;
+  right: 710px;
+}
+
+#networkMap {
+  position: absolute;
+  padding: 10px 30px;
+  background-color: #041E42;
+  border-width: 5px;
+  border-color: #FF8200;
+  border-radius: 30px;
+  color: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  margin: 20px 0px;
+  right: 1200px;
+}
+
+#pressedNetworkStat {
+  position: absolute;
+  padding: 10px 30px;
+  text-decoration: none;
+  background-color: #b8d6ff;
+  border-width: 5px;
+  border-color: #ffe0c0;
+  border-radius: 30px;
+  color: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  margin: 20px 0px;
+  right: 1030px;
+}
+
+#pressedNetworkVul {
+  position: absolute;
+  padding: 10px 30px;
+  text-decoration: none;
+  background-color: #b8d6ff;
+  border-width: 5px;
+  border-color: #ffe0c0;
+  border-radius: 30px;
+  color: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  margin: 20px 0px;
+  right: 860px;
+}
+
+#environmental {
+  position: absolute;
+  padding: 10px 30px;
+  background-color: #041E42;
+  border-width: 5px;
+  border-color: #FF8200;
+  border-radius: 30px;
+  color: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  margin: 20px 0px;
+  right: 860px;
+}
+
+#pressedEnvironmental {
+  position: absolute;
+  padding: 10px 30px;
+  text-decoration: none;
+  background-color: #b8d6ff;
+  border-width: 5px;
+  border-color: #ffe0c0;
+  border-radius: 30px;
+  color: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  margin: 20px 0px;
+  right: 860px;
+}
+
+#pressedcyberVA {
+  position: absolute;
+  padding: 10px 30px;
+  text-decoration: none;
+  background-color: #b8d6ff;
+  border-width: 5px;
+  border-color: #ffe0c0;
+  border-radius: 30px;
+  color: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 25px;
+  margin: 20px 0px;
+  left: 450px;
+}
+
+#networkStatistics {
+  position: absolute;
+  padding: 10px 30px;
+  background-color: #041E42;
+  border-width: 5px;
+  border-color: #FF8200;
+  border-radius: 30px;
+  color: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  margin: 20px 0px;
+  right: 1030px;
+}
+
+#networkVulnerabilities {
+  position: absolute;
+  padding: 10px 30px;
+  background-color: #041E42;
+  border-width: 5px;
+  border-color: #FF8200;
+  border-radius: 30px;
+  color: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  margin: 20px 0px;
+  right: 860px;
+}
+
+#TAKmap {
+  position: absolute;
+  padding: 10px 30px;
+  background-color: #041E42;
+  border-width: 5px;
+  border-color: #FF8200;
+  border-radius: 30px;
+  color: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  margin: 20px 0px;
+  right: 710px;
+}
+
+#addNode, #modifyImage {
+  position: absolute;
+  padding: 10px 30px;
+  background-color: #041E42;
+  border-width: 5px;
+  border-color: #FF8200;
+  border-radius: 30px;
+  color: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 30px;
+  margin: 20px 0px;
+  left: 30px;
+}
+
+#deleteNode {
+  position: absolute;
+  padding: 10px 30px;
+  background-color: #041E42;
+  border-width: 5px;
+  border-color: #FF8200;
+  border-radius: 30px;
+  color: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 30px;
+  margin: 20px 0px;
+  left: 260px;
+}
+
+#specifyStatus {
+  position: absolute;
+  padding: 10px 30px;
+  background-color: #041E42;
+  border-width: 5px;
+  border-color: #FF8200;
+  border-radius: 30px;
+  color: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 30px;
+  margin: 20px 0px;
+  left: 380px;
+}
+
+.content-container select{
+  border-radius: 20px;
+  border-width: 4px;
+  width: 1000px;
+  height: 50px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 30px;
+  padding-left: 10px;
+  
+}
+
+.content-container option{
+  padding: 10px 30px;
+  background-color: #041E42;
+  border-width: 5px;
+  border-color: #FF8200;
+  border-radius: 30px;
+  color: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 30px;
+}
+
+/* #cyberVA, #assessmentDash {
+  color: #ffffff;
+} */
+.leaflet-default-icon-path {
+  background-image: url(https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon.png);
+}
