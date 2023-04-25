@@ -123,6 +123,12 @@ body {
   
 }
 
+.table-wrapper
+{
+  max-height: 600px;
+  overflow-y: scroll;
+}
+
 .content-container label{
   display: block;
   color:#041E42;

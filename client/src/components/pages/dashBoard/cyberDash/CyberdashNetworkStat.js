@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import Select from "react-select";
 import ListNodeComponent from "./ListNodeComponent";
 import ListUserComponent from "./ListNodeComponent";
-import NetworkVulnerabilities from "./NetworkVulnerabilities";
+import NetworkVulnerabilities from "./ListNodeComponent";
 
 export default function CyberDashBoard() {
   const navigate = useNavigate();

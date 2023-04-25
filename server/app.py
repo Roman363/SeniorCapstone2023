@@ -180,7 +180,7 @@ def geoData():
         coords = set()
         for data in allData:
             
-            id = data['_id']
+            id = data['uid']
             lat = data['lat']
             lon = data['lon']
             coord = (lat, lon)

@@ -43,7 +43,7 @@ class ListNodeComponent extends Component {
                 <h2 className="text-center">Node List</h2>
                 
                 <br></br>
-                <div className="row">
+                <div className="table-wrapper">
                     <table className="table table-striped table-bordered">
                         <thead>
                             <tr>
