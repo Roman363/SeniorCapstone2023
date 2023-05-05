@@ -151,21 +151,23 @@ def ipdata():
         allData = db['canvasmaps/IPNodes'].find()
         dataJson = []
         for data in allData:
-            id = data['_id']
-            ip = data['@ip']
-            type = data['type']
-            status = data['status']
-            hostname = data['hostname']
-            label = data['label']
-            dataDict = {
-                'id': str(id),
-                'ip': ip,
-                'type': type,
-                'status': status,
-                'hostname': hostname,
-                'label': label
-            }
-            dataJson.append(dataDict)
+            print(data['check'])
+            if data['check']:
+                id = data['_id']
+                ip = data['@ip']
+                type = data['type']
+                status = data['status']
+                hostname = data['hostname']
+                label = data['label']
+                dataDict = {
+                    'id': str(id),
+                    'ip': ip,
+                    'type': type,
+                    'status': status,
+                    'hostname': hostname,
+                    'label': label
+                }
+                dataJson.append(dataDict)
         print(dataJson)
         return jsonify(dataJson)
 
@@ -320,7 +322,7 @@ def createTable():
 
         
 
-                # Replace "/path/to/yaml/file.yaml" with the actual path to your YAML file
+        # Replace "/path/to/yaml/file.yaml" with the actual path to your YAML file
         with open(yaml_file, "r") as f:
             data = yaml.safe_load(f)
 
@@ -374,6 +376,77 @@ def getTable():
             }
             dataJson.append(dataDict)
         return jsonify(dataJson)
+
+#Creates a Post and Get Response for the server
+@app.route('/listipnodes', methods=['GET'])
+def listipdata():
+    
+    
+    # GET all data from database
+    if request.method == 'GET':
+        allData = db['canvasmaps/IPNodes'].find()
+        dataJson = []
+        for data in allData:
+            id = data['_id']
+            ip = data['@ip']
+            type = data['type']
+            status = data['status']
+            check = data['check']
+            dataDict = {
+                'id': str(id),
+                'ip': ip,
+                'type': type,
+                'status': status,
+                'check': check
+            }
+            dataJson.append(dataDict)
+        print(dataJson)
+        return jsonify(dataJson)
+    
+#Creates a Post and Get Response for the server
+@app.route('/updateipnodes', methods=['POST'])
+def updatelistipdata():
+    
+    # GET all data from database
+    if request.method == 'POST':
+        ip = request.json.get("ip")
+        isChecked = request.json.get("isChecked")
+        
+
+        myquery = { "@ip": ip }
+        newvalues = { "$set": { "check": isChecked } }
+
+        db['canvasmaps/IPNodes'].update_one(myquery, newvalues)
+
+        return jsonify({"message": "Success"})
+
+
+#Creates a Post and Get Response for the server
+@app.route('/canvasipnodes2', methods=['POST', 'GET'])
+def ipdata2():
+    
+    # GET all data from database
+    if request.method == 'GET':
+        allData = db['canvasmaps/IPNodes'].find()
+        dataJson = []
+        for data in allData:
+            print(data['check'])
+            if data['check']:
+                id = data['_id']
+                ip = data['@ip']
+                nmap = data['nmap-os']
+                openports = data['open-ports']
+
+                dataDict = {
+                    'id': str(id),
+                    'ip': ip,
+                    'nmap': nmap,
+                    'openports': openports["port"] if int(openports["@count"]) > 0 else [],
+                }
+                dataJson.append(dataDict)
+        print(dataJson)
+        return jsonify(dataJson)
+
 
 
 if __name__ == '__main__':

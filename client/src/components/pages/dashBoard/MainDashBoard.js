@@ -24,6 +24,10 @@ export default function MainDashBoard() {
     navigate("/CustomizeNode");
   }
 
+  function handleBack(event) {
+    navigate("/");
+  }
+
   // menubar selection
 
   const options = [
@@ -66,7 +70,7 @@ export default function MainDashBoard() {
 </form>
 
     <div id="footer">
-      <button id="quit">Quit</button> 
+      <button id="quit" onClick={handleBack}>Quit</button>
       <button id="settings">Settings</button>
       <button id="addNode" onClick={handleAddNode}>Add Node</button>
       <button id="deleteNode">Delete Node</button>

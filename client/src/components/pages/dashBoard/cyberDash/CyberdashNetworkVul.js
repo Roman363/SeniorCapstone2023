@@ -46,6 +46,10 @@ export default function CyberDashBoard() {
     { value: "TAKmap", label: "TAK Map" },
   ];
 
+  function handleBack(event) {
+    navigate("/");
+  }
+
   function handleMenu(e){
     e.preventDefault();
     console.log("e.value");
@@ -71,7 +75,7 @@ export default function CyberDashBoard() {
   </NetworkVulnerabilities>
 
     <div id="footer">
-      <button id="quit">Quit</button> 
+      <button id="quit" onClick={handleBack}>Quit</button>
       <button id="settings">Settings</button>
       <button id="networkMap" onClick={handleCyberdashNetworkMap}> Network Map </button>
       <button id="networkStatistics" onClick={handleNetworkStatistics}> Network Stat </button>

@@ -18,7 +18,17 @@ class CanvasMapsReader:
     @staticmethod
     def getIpRequestNode(data):
         nodeMap = data[0]['map']['node']
-        dataList = [node for node in nodeMap]
+        #dataList = [node for node in nodeMap]
+        ipList = set()
+        dataList = []
+        for node in nodeMap:
+            if node["@ip"] in ipList:
+                continue
+            dataList.append(node)
+            ipList.add(node["@ip"])
+        for node in dataList:
+            node["check"] = True
+            
         return DatabaseRequestNode(dataList, "add", "canvasmaps/IPNodes")
     
     @staticmethod

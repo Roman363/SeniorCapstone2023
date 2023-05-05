@@ -24,6 +24,10 @@ export default function AssessmentDash() {
     navigate("/CustomizeNode");
   }
 
+  function handleBack(event) {
+    navigate("/");
+  }
+
   function handleEnvironmentalInfo(){
     navigate("/EnvironmentalInfo");
   }
@@ -52,7 +56,7 @@ export default function AssessmentDash() {
 
 
     <div id="footer">
-      <button id="quit">Quit</button> 
+      <button id="quit" onClick={handleBack}>Quit</button> 
       <button id="settings">Settings</button>
       <button id="pressedNetworkMap"> Vulnerability Info. </button>
       <button id="environmental"onClick={handleEnvironmentalInfo}> Environmental Info. </button>

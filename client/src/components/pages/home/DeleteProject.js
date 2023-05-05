@@ -89,8 +89,8 @@ function DeleteProject() {
 
 
     <div id="footer">
-      <button id="quit">Quit</button> 
-      {/* onclick={handleQuit} */}
+      <button id="quit" onClick={handleBack}>Quit</button> 
+      
     </div>
 </body>
   )

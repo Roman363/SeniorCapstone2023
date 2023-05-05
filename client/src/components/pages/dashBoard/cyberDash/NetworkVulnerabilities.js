@@ -1,62 +1,73 @@
-import * as React from 'react';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
+import React, { Component } from 'react'
+import axios from 'axios';
+import "./ListNodeComponent.css";
 
-// name, calories, fat, carbs, protein 
-function createData(systemIP, associations, op, activeService, protocol, sentPackets, trafficAmount) {
-  return { systemIP, associations, op, activeService, protocol, sentPackets, trafficAmount };
+
+
+
+function getUsers(){
+    return axios.get('http://127.0.0.1:5000/canvasipnodes2')
+        
 }
 
-const statistics = [
-  createData("157.143.80.158", "Open", "Windows", "Windows Bot Service", "VTP", "350", "Low"),
-  createData("157.143.80.158", "Open", "Windows", "Windows Bot Service", "VTP", "350", "Low"),
-  createData("157.143.80.158", "Open", "Windows", "Windows Bot Service", "VTP", "350", "Low"),
-  createData("157.143.80.158", "Open", "Windows", "Windows Bot Service", "VTP", "350", "Low"),
-  createData("157.143.80.158", "Open", "Windows", "Windows Bot Service", "VTP", "350", "Low"),
-  createData("157.143.80.158", "Open", "Windows", "Windows Bot Service", "VTP", "350", "Low"),
-  createData("157.143.80.158", "Open", "Windows", "Windows Bot Service", "VTP", "350", "Low"),
 
-];
 
-export default function NetworkVulnerabilities() {
-  return (
-    <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 650 }} aria-label="simple table">
-        <TableHead>
-          <TableRow>
-            <TableCell>SystemIP</TableCell>
-            <TableCell align="right">Associations</TableCell>
-            <TableCell align="right">OP&nbsp;(g)</TableCell>
-            <TableCell align="right">Active Service&nbsp;(g)</TableCell>
-            <TableCell align="right">Protocol&nbsp;(g)</TableCell>
-            <TableCell align="right">Sent Packets&nbsp;(g)</TableCell>
-            <TableCell align="right">Traffic Amount&nbsp;(g)</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {statistics.map((row) => (
-            <TableRow
-              key={row.name}
-              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-            >
-              <TableCell component="th" scope="row">
-                {row.systemIP}
-              </TableCell>
-              <TableCell align="right">{row.associations}</TableCell>
-              <TableCell align="right">{row.op}</TableCell>
-              <TableCell align="right">{row.activeService}</TableCell>
-              <TableCell align="right">{row.protocol}</TableCell>
-              <TableCell align="right">{row.sentPackets}</TableCell>
-              <TableCell align="right">{row.trafficAmount}</TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
-  );
+
+class NetworkVulnerabilities extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            nodes: []
+        }
+        //this.addUser = this.addUser.bind(this);
+        //this.editUser = this.editUser.bind(this);
+        //this.deleteUser = this.deleteUser.bind(this);
+    }
+    
+    
+    componentDidMount() {
+        getUsers().then((res) => {
+            this.setState({ nodes: res.data });
+        });
+    }
+
+
+    
+
+
+
+    render() {
+        return (
+            
+            <div>
+                <h2 className="text-center">Nmap List</h2>
+                
+                <br></br>
+                <div className="table-wrapper">
+                    <table className="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th> IP</th>
+                                <th> Nmap OS</th>
+                                <th> Open Ports</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {
+                                this.state.nodes.map(
+                                    node =>
+                                        <tr key={node.id}>
+                                            <td> {node.ip} </td>
+                                            <td> {node.nmap}</td>
+                                            <td> {node.openports.map(item => <li>${item}</li>)}</td>
+                                        </tr>
+                                )
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        )
+    }
 }
+export default NetworkVulnerabilities

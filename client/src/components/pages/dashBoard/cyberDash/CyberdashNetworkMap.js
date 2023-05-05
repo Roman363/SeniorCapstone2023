@@ -51,6 +51,10 @@ export default function CyberDashBoard() {
     console.log("e.value");
   }
 
+  function handleBack(event) {
+    navigate("/");
+  }
+
   function handleQuit(e)
   {
     e.preventDefault();
@@ -75,7 +79,7 @@ export default function CyberDashBoard() {
 
 
   <div id="footer">
-    <button id="quit">Quit</button> 
+    <button id="quit" onClick={handleBack}>Quit</button>
     <button id="settings">Settings</button>
     <button id="pressedNetworkMap"> Network Map </button>
     <button id="networkStatistics" onClick={handleNetworkStatistics}> Network Stat </button>
