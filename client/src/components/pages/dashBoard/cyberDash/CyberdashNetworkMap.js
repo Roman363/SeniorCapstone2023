@@ -51,13 +51,10 @@ export default function CyberDashBoard() {
     console.log("e.value");
   }
 
-<<<<<<< HEAD
-=======
   function handleBack(event) {
     navigate("/");
   }
 
->>>>>>> Backend
   function handleQuit(e)
   {
     e.preventDefault();
@@ -75,27 +72,6 @@ export default function CyberDashBoard() {
 
     <div class="content-container">
       
-<<<<<<< HEAD
-      
-
-    </div>
-
-  <NetworkMapV3>
-
-  </NetworkMapV3>
-
-    <div id="footer">
-      <button id="quit">Quit</button> 
-      <button id="settings">Settings</button>
-      <button id="pressedNetworkMap"> Network Map </button>
-      <button id="networkStatistics" onClick={handleNetworkStatistics}> Network Stat </button>
-      <button id="networkVulnerabilities" onClick={handleNetworkVulnerabilities}> Network Vul. </button>
-      <button id="TAKmap" onClick={handleTAKMap}> TAK Map </button>
-      <button id="addNode" onClick={handleAddNode}>Add Node</button>
-      <button id="deleteNode">Delete Node</button>
-      {/* <!-- onclick={handleQuit} --> */}
-    </div>
-=======
       <NetworkMapV3/>
 
     </div>
@@ -113,7 +89,6 @@ export default function CyberDashBoard() {
     <button id="deleteNode">Delete Node</button>
     {/* <!-- onclick={handleQuit} --> */}
   </div>
->>>>>>> Backend
 </body>
   );
 }

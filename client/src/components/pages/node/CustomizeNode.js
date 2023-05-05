@@ -1,15 +1,3 @@
-<<<<<<< HEAD
-import React from "react";
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-
-function CustomizeNode(){
-
-    const navigate = useNavigate();
-
-    function handleBack(event) {
-        navigate("/");
-=======
 import { useNavigate } from "react-router-dom";
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
@@ -54,7 +42,6 @@ function CustomizeNode() {
 
     function handleBack(event) {
         navigate("/cyberdashboard");
->>>>>>> Backend
     }
     function handleColor(event) {
         navigate("/NodeColor");
@@ -64,43 +51,6 @@ function CustomizeNode() {
         navigate("/ModifyImage");
     }
     function handleStatus(event) {
-<<<<<<< HEAD
-        navigate("/");
-    }
-
-
-    return (
-
-
-<body>
-<header id="mainNav">
-    <h2 id="naive">Customize Node</h2>
-</header>
-
-
-<form>
-  <div class="content-container">
-      <div class="main">
-
-        
-
-      </div>
-  </div>
-</form>
-
-  <div id="footer">
-    <button id="back" onClick={handleBack}>Back</button> 
-    <button id="nodeColor" onClick={handleColor}>Node Color</button>
-    <button id="modifyImage" onClick={handleImage}>Modify Node Image</button>
-    <button id="specifyStatus" onClick={handleStatus}>Specify Node Status</button>
-    {/* <!-- onclick={handleQuit} --> */}
-  </div>
-</body>
-
-
-    );
-}
-=======
         navigate("/SpecifyNodeStatusAlert");
     }
 
@@ -142,6 +92,5 @@ function CustomizeNode() {
     );
   }
   
->>>>>>> Backend
 
 export default CustomizeNode

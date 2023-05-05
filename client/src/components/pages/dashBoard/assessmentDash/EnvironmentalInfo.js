@@ -1,11 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-<<<<<<< HEAD
-import NetworkVulnerabilities from "../cyberDash/NetworkVulnerabilities";
-=======
 import EnvironmentalInfo from "../cyberDash/EnvironmentalInfoTable.js";
 import EnvironmentalInfoTable from "../cyberDash/EnvironmentalInfoTable";
->>>>>>> Backend
 
 export default function CyberDashBoard() {
   const navigate = useNavigate();
@@ -67,15 +63,9 @@ export default function CyberDashBoard() {
 
     </div>
 
-<<<<<<< HEAD
-  <NetworkVulnerabilities>
-
-  </NetworkVulnerabilities>
-=======
   <EnvironmentalInfoTable>
 
   </EnvironmentalInfoTable>
->>>>>>> Backend
 
   <div id="footer">
       <button id="quit">Quit</button> 

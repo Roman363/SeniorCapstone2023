@@ -12,15 +12,12 @@ th, td {
   text-align: left;
 }
 
-<<<<<<< HEAD
-=======
 head{
   font-style: normal;
   font-size: medium;
   font-weight: bold;
 }
 
->>>>>>> Backend
 th {
   background-color: #f2f2f2;
 }
@@ -32,10 +29,7 @@ tr:nth-child(even) {
 tr:hover {
   background-color: #ddd;
 }
-<<<<<<< HEAD
-=======
 
 .networkMap{
   overflow: hidden;
 }
->>>>>>> Backend
