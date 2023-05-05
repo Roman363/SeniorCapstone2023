@@ -12,6 +12,12 @@ th, td {
   text-align: left;
 }
 
+head{
+  font-style: normal;
+  font-size: medium;
+  font-weight: bold;
+}
+
 th {
   background-color: #f2f2f2;
 }
