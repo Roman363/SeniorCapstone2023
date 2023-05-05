@@ -51,7 +51,7 @@ function CustomizeNode() {
         navigate("/ModifyImage");
     }
     function handleStatus(event) {
-        navigate("/");
+        navigate("/SpecifyNodeStatusAlert");
     }
 
   

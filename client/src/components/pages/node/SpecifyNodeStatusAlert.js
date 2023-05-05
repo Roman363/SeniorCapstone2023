@@ -1,45 +1,53 @@
-import React from 'react'
-import { useState } from 'react';
+import React from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Select from 'react-select';
 
-export default function SpecifyNodeStatusAlert(){
+function SpecifyNodeStatusAlert() {
+  const navigate = useNavigate();
 
-    const navigate = useNavigate();
-    const [fileName, setFileName] = useState("");
+  const options = [
+    { value: "status1", label: "status1" },
+    { value: "status2", label: "status2" },
+    { value: "status3", label: "status3" },
+  ];
 
-    function handleChange(e) {
-        e.preventDefault();
-        setFileName(e.target.value);
-    }
+  function handleSubmit(e) {
+    e.preventDefault();
 
-    function handleChange(event) {
-      event.preventDefault();
-      //setFile(event.target.value);
-    }
+  }
 
-    function handleSubmit(event) {
-      event.preventDefault()
-      //console.log(file)
-    }
+  function handleBack(event) {
+    navigate('/CustomizeNode');
+ }
 
-
-    //form to enter the status of the node 
-    //include compromised, tagged or if the node is good to go
-    return (
-        <form onSubmit={handleSubmit}>
-          <h3>Node Status </h3>
-          
-          <h5>Enter Node Status</h5>
-          <input
-            type="text"
-            name="fileInput"
-            placeholder="Specify Node Status"
-            onChange={handleChange}
-          ></input>
-          <button type="submit">Enter</button>
-        </form>
-      );
+  return (
+<body>
+    <header id="mainNav">
+        <h2 id="color">Choose A Status</h2>
+        {/* <!-- <a href="" id="cyberVA">Cyber VA</a>
+        <a href="" id="assessmentDash">Assessment Dashboard</a> --> */}
+    </header>
 
 
+    <form onSubmit={handleSubmit}>
+      <div class="content-container">
+        
 
+        <Select options={options}
+        ></Select>
+
+        <button type="submit">Save</button>
+        <button onClick={handleBack} >Back</button>
+      </div>
+    </form>
+
+    <div id="footer">
+        <button id="quit">Quit</button> 
+        {/* onclick={handleQuit} */}
+      </div>
+</body>
+  );
 }
+
+export default SpecifyNodeStatusAlert;
