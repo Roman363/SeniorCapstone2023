@@ -63,9 +63,9 @@ The Naive interface first gives the user a series of prompts to ascertain the da
 
 4. After choosing the project, you will be redirected to the main dashboard page where there are three buttons which will allow you to stay in the “Main dashboard”, go to the “Cyber VA Dashboard” or go to the “Assessment Dashboard”.
 
-4a. Clicking on the “Cyber VA Dashboard” button will allow you to select from a drop down menu to view information such as the network map, network statistics, network volume, or the TAK map. 
+4a. Clicking on the “Cyber VA Dashboard” button will direct you to the main dashboard to view information such as the network map, network statistics, network volume, or the TAK map. 
 
-4b. Clicking on the “Assessment Dashboard” button will allow you to view a different drop-down menu where the focus revolves on understanding map factoids such as date created, file size, networks involved in the map.
+4b. Clicking on the “Assessment Dashboard” button will direct you to the Assessment dashboard page where the focus revolves on understanding map factoids such as date created, file size, networks involved in the map.
 
 5.In the Cyber VA Dashboard, you will be able to make changes to the network statistics, vulnerabilities, network map and TAK map by allowing edits, deletions, additions, and the ability to export each of these options. 
 
@@ -73,7 +73,6 @@ The Naive interface first gives the user a series of prompts to ascertain the da
 Linux Version - Kali Linux 2022.4 Debian 11
 
 Laptop Specs - 
-
 
 
 # Environmental Information 
