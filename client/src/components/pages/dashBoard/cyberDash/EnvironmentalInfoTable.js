@@ -13,7 +13,7 @@ function getUsers(){
 
 
 
-class NetworkVulnerabilities extends Component {
+class EnvironmentalInfoTable extends Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -44,12 +44,13 @@ class NetworkVulnerabilities extends Component {
                 
                 <br></br>
                 <div className="table-wrapper">
-                <table className="table table-striped table-bordered">
+                    <table className="table table-striped table-bordered">
                         <thead>
                             <tr>
                                 <th> IP</th>
-                                <th> Nmap OS</th>
-                                <th> Open Ports</th>
+                                <th> Operating System</th>
+                                <th> Version</th>
+                                <th> Status</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -58,8 +59,9 @@ class NetworkVulnerabilities extends Component {
                                     node =>
                                         <tr key={node.id}>
                                             <td> {node.ip} </td>
+                                            <td> {node.tpy}</td>
                                             <td> {node.nmap}</td>
-                                            <td> {node.openports.map(item => <li>${item}</li>)}</td>
+                                            <td>{node.status}</td>
                                         </tr>
                                 )
                             }
@@ -70,4 +72,4 @@ class NetworkVulnerabilities extends Component {
         )
     }
 }
-export default NetworkVulnerabilities
+export default EnvironmentalInfoTable

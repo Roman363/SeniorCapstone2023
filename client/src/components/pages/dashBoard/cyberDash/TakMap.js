@@ -43,7 +43,7 @@ render() {
       className="map"
       center={position}
       zoom={13}
-      style={{ height: 500, width: "100%" }}
+      style={{ height: 620, width: "100%" }}
     >
       <TileLayer
         attribution='&amp;copy <a href="http://osm.org/copyright%22%3EOpenStreetMap</a> contributors'

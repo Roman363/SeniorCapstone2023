@@ -436,12 +436,18 @@ def ipdata2():
                 ip = data['@ip']
                 nmap = data['nmap-os']
                 openports = data['open-ports']
+                tpy = data['type']
+                status = data['status']
+                label = data['label']
 
                 dataDict = {
                     'id': str(id),
                     'ip': ip,
                     'nmap': nmap,
                     'openports': openports["port"] if int(openports["@count"]) > 0 else [],
+                    'tpy':tpy,
+                    'status':status,
+                    'label':label
                 }
                 dataJson.append(dataDict)
         print(dataJson)

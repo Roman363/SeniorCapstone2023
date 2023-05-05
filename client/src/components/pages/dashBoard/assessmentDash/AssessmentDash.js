@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Select from "react-select";
+import VulnerabilityInfo from "../cyberDash/VulnerabilityInfo";
 
 export default function AssessmentDash() {
   const navigate = useNavigate();
@@ -54,6 +55,9 @@ export default function AssessmentDash() {
       <button id="pressedAssessment">Assessment Dashboard</button>
   </header>
 
+<VulnerabilityInfo>
+  
+</VulnerabilityInfo>
 
     <div id="footer">
       <button id="quit" onClick={handleBack}>Quit</button> 

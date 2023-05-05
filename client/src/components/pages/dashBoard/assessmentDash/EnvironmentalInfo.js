@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import EnvironmentalInfo from "../cyberDash/EnvironmentalInfoTable";
-import NetworkVulnerabilities from "../cyberDash/NetworkVulnerabilities";
+import EnvironmentalInfo from "../cyberDash/EnvironmentalInfoTable.js";
+import EnvironmentalInfoTable from "../cyberDash/EnvironmentalInfoTable";
 
 export default function CyberDashBoard() {
   const navigate = useNavigate();
