@@ -1,26 +1,32 @@
 from flask import Flask, render_template, request, jsonify
-from pymongo import MongoClient
 from bson.objectid import ObjectId
 from flask_cors import CORS
+<<<<<<< HEAD
 import yaml
 import networkx as nx
 
+=======
+from Database.databaseConnector import *
+import os
+import networkx as nx
+import shutil
+import RollupIngestion.rollupIngestion
+from RolllupReader.reader import *
+from RollupIngestion.rollupExtraction import *
+
+
+absolute_path = os.path.dirname(__file__)
+>>>>>>> Backend
 
 #Starts Flask Application
 app = Flask(__name__)
 
-#Loads configuration file for the server
-config = yaml.safe_load(open('database.yaml'))
+DatabaseConnection.setUp()
 
-#Creates the string needed to connect to the server
-CONNECTION_STRING = config['uri']
-
-#Creates an instance of the server using the connection
-client = MongoClient(CONNECTION_STRING)
-
-#Creates an instance of a database
-db = client[config['cluster']]
-
+client = DatabaseConnection._client
+global db 
+db = DatabaseConnection._db
+a = "hi"
 CORS(app)
 
 #Show the HTML Homepage for the server
@@ -151,6 +157,7 @@ def ipdata():
         allData = db['canvasmaps/IPNodes'].find()
         dataJson = []
         for data in allData:
+<<<<<<< HEAD
             id = data['_id']
             ip = data['@ip']
             type = data['type']
@@ -166,6 +173,25 @@ def ipdata():
                 'label': label
             }
             dataJson.append(dataDict)
+=======
+            print(data['check'])
+            if data['check']:
+                id = data['_id']
+                ip = data['@ip']
+                type = data['type']
+                status = data['status']
+                hostname = data['hostname']
+                label = data['label']
+                dataDict = {
+                    'id': str(id),
+                    'ip': ip,
+                    'type': type,
+                    'status': status,
+                    'hostname': hostname,
+                    'label': label
+                }
+                dataJson.append(dataDict)
+>>>>>>> Backend
         print(dataJson)
         return jsonify(dataJson)
 
@@ -276,6 +302,184 @@ def networkNodes():
         return jsonify(dataJson)
 
 
+<<<<<<< HEAD
+=======
+@app.route('/changeTable/<string:id>', methods=['POST'])
+def changeTable(id):
+    global db
+    # GET a specific data by id
+    if request.method == 'POST':
+        DatabaseConnection._db = DatabaseConnection._client[id]
+        db = DatabaseConnection._db
+        DatabaseConnection._name = id
+
+        return jsonify({"message": "Success"})
+    
+@app.route('/deleteTable/<string:id>', methods=['POST'])
+def deleteTable(id):
+    global db
+    # GET a specific data by id
+    if request.method == 'POST':
+        client.drop_database(id)
+        client["Projects"]["Names"].delete_one({ "project": id })
+
+        return jsonify({"message": "Success"})
+
+@app.route('/createTable', methods=['POST'])
+def createTable():
+    global db
+    # GET a specific data by id
+    if request.method == 'POST':
+        text = request.form.get("text")
+        file = request.files.get("file")
+        print(file.filename)
+        print(file.content_type)
+
+        print(text)
+        print(file)
+        parent = os.path.dirname(__file__)
+        rollupData = os.path.join(parent, "RollupData")
+        destination_file = os.path.join(rollupData, file.filename)
+
+        file.save(destination_file)
+
+        yamlData = os.path.join(parent, "Database")
+        yaml_file = os.path.join(yamlData, "database.yaml")
+
+        
+
+        # Replace "/path/to/yaml/file.yaml" with the actual path to your YAML file
+        with open(yaml_file, "r") as f:
+            data = yaml.safe_load(f)
+
+        # Modify the data however you need to
+        data["cluster"] = text
+
+        # Save the changes back to the YAML file
+        with open(yaml_file, "w") as f:
+            yaml.safe_dump(data, f)
+
+        #Sends entire rollup
+        RollupIngestion.rollupIngestion.startRollupReader()
+
+        DatabaseConnection._db = DatabaseConnection._client[text]
+        db = DatabaseConnection._db
+        DatabaseConnection._name = text
+
+        
+        client["Projects"]["Names"].insert_one({"project": DatabaseConnection._name})
+        
+        RollupExtractor.setUp()
+        rollupParentPath = RollupExtractor.getRollupParentDirectory()
+
+        path = os.path.join(rollupParentPath, "TakMap")
+        path = os.path.join(path, "TAK_TrafficS.pcapng")
+
+        data = PcapReader.getData(path)
+        requestNodeList = TrafficReader.getRequestNodeList(data)
+        #Sends the node to be added to the database    
+        #Sends the node to be added to the database
+        for requestNode in requestNodeList:
+            DatabaseConnection.request(requestNode)
+
+
+        return jsonify({"message": "Success"})
+
+#Creates a Post and Get Response for the server
+@app.route('/getTable', methods=['GET'])
+def getTable():
+    # GET all data from database
+    print(DatabaseConnection._name)
+    if request.method == 'GET':
+        allData = client["Projects"]["Names"].find()
+        dataJson = []
+        for data in allData:
+            id = data['_id']
+            name = data['project']
+            dataDict = {
+                'id': str(id),
+                'name': name     
+            }
+            dataJson.append(dataDict)
+        return jsonify(dataJson)
+
+#Creates a Post and Get Response for the server
+@app.route('/listipnodes', methods=['GET'])
+def listipdata():
+    
+    
+    # GET all data from database
+    if request.method == 'GET':
+        allData = db['canvasmaps/IPNodes'].find()
+        dataJson = []
+        for data in allData:
+            id = data['_id']
+            ip = data['@ip']
+            type = data['type']
+            status = data['status']
+            check = data['check']
+            dataDict = {
+                'id': str(id),
+                'ip': ip,
+                'type': type,
+                'status': status,
+                'check': check
+            }
+            dataJson.append(dataDict)
+        print(dataJson)
+        return jsonify(dataJson)
+    
+#Creates a Post and Get Response for the server
+@app.route('/updateipnodes', methods=['POST'])
+def updatelistipdata():
+    
+    # GET all data from database
+    if request.method == 'POST':
+        ip = request.json.get("ip")
+        isChecked = request.json.get("isChecked")
+        
+
+        myquery = { "@ip": ip }
+        newvalues = { "$set": { "check": isChecked } }
+
+        db['canvasmaps/IPNodes'].update_one(myquery, newvalues)
+
+        return jsonify({"message": "Success"})
+
+
+#Creates a Post and Get Response for the server
+@app.route('/canvasipnodes2', methods=['POST', 'GET'])
+def ipdata2():
+    
+    # GET all data from database
+    if request.method == 'GET':
+        allData = db['canvasmaps/IPNodes'].find()
+        dataJson = []
+        for data in allData:
+            print(data['check'])
+            if data['check']:
+                id = data['_id']
+                ip = data['@ip']
+                nmap = data['nmap-os']
+                openports = data['open-ports']
+                tpy = data['type']
+                status = data['status']
+                label = data['label']
+
+                dataDict = {
+                    'id': str(id),
+                    'ip': ip,
+                    'nmap': nmap,
+                    'openports': openports["port"] if int(openports["@count"]) > 0 else [],
+                    'tpy':tpy,
+                    'status':status,
+                    'label':label
+                }
+                dataJson.append(dataDict)
+        print(dataJson)
+        return jsonify(dataJson)
+
+>>>>>>> Backend
 
 
 if __name__ == '__main__':

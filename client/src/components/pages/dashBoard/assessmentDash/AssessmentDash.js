@@ -2,6 +2,10 @@ import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Select from "react-select";
+<<<<<<< HEAD
+=======
+import VulnerabilityInfo from "../cyberDash/VulnerabilityInfo";
+>>>>>>> Backend
 
 export default function AssessmentDash() {
   const navigate = useNavigate();
@@ -24,6 +28,13 @@ export default function AssessmentDash() {
     navigate("/CustomizeNode");
   }
 
+<<<<<<< HEAD
+=======
+  function handleBack(event) {
+    navigate("/");
+  }
+
+>>>>>>> Backend
   function handleEnvironmentalInfo(){
     navigate("/EnvironmentalInfo");
   }
@@ -50,9 +61,18 @@ export default function AssessmentDash() {
       <button id="pressedAssessment">Assessment Dashboard</button>
   </header>
 
+<<<<<<< HEAD
 
     <div id="footer">
       <button id="quit">Quit</button> 
+=======
+<VulnerabilityInfo>
+  
+</VulnerabilityInfo>
+
+    <div id="footer">
+      <button id="quit" onClick={handleBack}>Quit</button> 
+>>>>>>> Backend
       <button id="settings">Settings</button>
       <button id="pressedNetworkMap"> Vulnerability Info. </button>
       <button id="environmental"onClick={handleEnvironmentalInfo}> Environmental Info. </button>

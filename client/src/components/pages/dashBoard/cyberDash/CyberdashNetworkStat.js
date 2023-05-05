@@ -4,7 +4,11 @@ import { useNavigate } from "react-router-dom";
 import Select from "react-select";
 import ListNodeComponent from "./ListNodeComponent";
 import ListUserComponent from "./ListNodeComponent";
+<<<<<<< HEAD
 import NetworkVulnerabilities from "./NetworkVulnerabilities";
+=======
+import NetworkVulnerabilities from "./ListNodeComponent";
+>>>>>>> Backend
 
 export default function CyberDashBoard() {
   const navigate = useNavigate();
@@ -48,6 +52,13 @@ export default function CyberDashBoard() {
     { value: "TAKmap", label: "TAK Map" },
   ];
 
+<<<<<<< HEAD
+=======
+  function handleBack(event) {
+    navigate("/");
+  }
+
+>>>>>>> Backend
   function handleMenu(e){
     e.preventDefault();
     console.log("e.value");
@@ -73,7 +84,11 @@ export default function CyberDashBoard() {
   </NetworkVulnerabilities>
 
     <div id="footer">
+<<<<<<< HEAD
       <button id="quit">Quit</button> 
+=======
+      <button id="quit" onClick={handleBack}>Quit</button>
+>>>>>>> Backend
       <button id="settings">Settings</button>
       <button id="networkMap" onClick={handleCyberdashNetworkMap}> Network Map </button>
       <button id="pressedNetworkStat"> Network Stat </button>
@@ -81,7 +96,10 @@ export default function CyberDashBoard() {
       <button id="TAKmap" onClick={handleTAKMap}> TAK Map </button>
       <button id="addNode" onClick={handleAddNode}>Add Node</button>
       <button id="deleteNode">Delete Node</button>
+<<<<<<< HEAD
       {/* <!-- onclick={handleQuit} --> */}
+=======
+>>>>>>> Backend
     </div>
 </body>
   );
