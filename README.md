@@ -1,6 +1,6 @@
 # CS4311_Naive_6SunCitySoftware_Spring2023
 
-#Version Number : 1.2
+#Version Number : 1.3
 
 
 This is Team 6 with our own version of the Naive Project we have been working on since the fall 2022 semester.
@@ -72,8 +72,10 @@ The Naive interface first gives the user a series of prompts to ascertain the da
 # Dependencies
 Linux Version - Kali Linux 2022.4 Debian 11
 
-Laptop Specs - 
-
+Laptop Specs - OS : Windows 10
+System Type : x64 based PC
+Processor: Intel(R) COre(TM) i7-9750H CPU @2.6GHz, 2592 Mhz, 6 core(s), 12 Logical P...
+RAM: 16GB
 
 # Environmental Information 
 
