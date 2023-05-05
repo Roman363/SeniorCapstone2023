@@ -123,15 +123,12 @@ body {
   
 }
 
-<<<<<<< HEAD
-=======
 .table-wrapper
 {
-  max-height: 600px;
+  max-height: 500px;
   overflow-y: scroll;
 }
 
->>>>>>> Backend
 .content-container label{
   display: block;
   color:#041E42;

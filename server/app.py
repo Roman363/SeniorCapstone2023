@@ -1,11 +1,6 @@
 from flask import Flask, render_template, request, jsonify
 from bson.objectid import ObjectId
 from flask_cors import CORS
-<<<<<<< HEAD
-import yaml
-import networkx as nx
-
-=======
 from Database.databaseConnector import *
 import os
 import networkx as nx
@@ -16,7 +11,6 @@ from RollupIngestion.rollupExtraction import *
 
 
 absolute_path = os.path.dirname(__file__)
->>>>>>> Backend
 
 #Starts Flask Application
 app = Flask(__name__)
@@ -157,23 +151,6 @@ def ipdata():
         allData = db['canvasmaps/IPNodes'].find()
         dataJson = []
         for data in allData:
-<<<<<<< HEAD
-            id = data['_id']
-            ip = data['@ip']
-            type = data['type']
-            status = data['status']
-            hostname = data['hostname']
-            label = data['label']
-            dataDict = {
-                'id': str(id),
-                'ip': ip,
-                'type': type,
-                'status': status,
-                'hostname': hostname,
-                'label': label
-            }
-            dataJson.append(dataDict)
-=======
             print(data['check'])
             if data['check']:
                 id = data['_id']
@@ -191,7 +168,6 @@ def ipdata():
                     'label': label
                 }
                 dataJson.append(dataDict)
->>>>>>> Backend
         print(dataJson)
         return jsonify(dataJson)
 
@@ -302,8 +278,6 @@ def networkNodes():
         return jsonify(dataJson)
 
 
-<<<<<<< HEAD
-=======
 @app.route('/changeTable/<string:id>', methods=['POST'])
 def changeTable(id):
     global db
@@ -479,7 +453,6 @@ def ipdata2():
         print(dataJson)
         return jsonify(dataJson)
 
->>>>>>> Backend
 
 
 if __name__ == '__main__':
